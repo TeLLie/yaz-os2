@@ -497,10 +497,12 @@ static struct addrinfo *create_net_socket(COMSTACK h)
     yaz_log(log_level, "First socket fd=%d", s);
     assert(ai);
     h->iofile = s;
+#ifndef __OS2__
     if (ai->ai_family == AF_INET6 && sp->ipv6_only >= 0 &&
         setsockopt(h->iofile,
                    IPPROTO_IPV6,
                    IPV6_V6ONLY, &sp->ipv6_only, sizeof(sp->ipv6_only)))
+#endif
         return 0;
     if (sp->bind_host)
     {
