@@ -1,0 +1,10 @@
+doc/yaz-client.1
+doc/yaz-ztest.8
+doc/zoomsh.1
+doc/yaz-marcdump.1
+doc/yaz-iconv.1
+doc/yaz-log.7
+doc/bib1-attr.7
+doc/yaz-json-parse.1
+doc/yaz-url.1
+doc/yaz-record-conv.1
