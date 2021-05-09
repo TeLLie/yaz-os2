@@ -29,6 +29,10 @@
 #include <yaz/thread_create.h>
 #include <yaz/log.h>
 
+#ifdef __OS2__
+#include <libcx/net.h>
+#endif
+
 #ifdef WIN32
 #include <winsock2.h>
 #include <ws2tcpip.h>
