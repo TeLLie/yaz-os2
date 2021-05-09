@@ -66,34 +66,34 @@ diagsru_update.c yaz/diagsru_update.h: sru_update.csv
 
 noinst_HEADERS = yaz/icu_I18N.h diag-entry.h
 
-pkginclude_HEADERS= yaz/backend.h yaz/backtrace.h yaz/base64.h \
- yaz/ccl.h yaz/ccl_xml.h yaz/cookie.h yaz/cql.h yaz/rpn2cql.h \
- yaz/rpn2solr.h yaz/solr.h yaz/comstack.h \
- yaz/diagbib1.h yaz/diagsrw.h yaz/diagsru_update.h yaz/sortspec.h \
- yaz/log.h yaz/logrpn.h yaz/malloc_info.h yaz/marcdisp.h yaz/proxunit.h \
- yaz/nmem.h yaz/nmem_xml.h yaz/odr.h yaz/errno.h yaz/facet.h \
- yaz/options.h yaz/otherinfo.h yaz/pquery.h yaz/prt-ext.h \
- yaz/querytowrbuf.h yaz/readconf.h yaz/record_conv.h yaz/record_render.h \
- yaz/retrieval.h yaz/statserv.h \
- yaz/tcpip.h yaz/test.h yaz/timing.h yaz/unix.h yaz/tpath.h yaz/wrbuf.h \
- yaz/xmalloc.h yaz/yaz-ccl.h yaz/yaz-iconv.h yaz/yaz-util.h \
- yaz/yaz-version.h yaz/yconfig.h yaz/proto.h \
- yaz/xml_get.h yaz/xmlquery.h yaz/xmltypes.h yaz/snprintf.h \
- yaz/query-charset.h yaz/mutex.h yaz/oid_db.h yaz/oid_util.h \
- yaz/oid_std.h yaz/tokenizer.h yaz/copy_types.h \
- yaz/icu.h yaz/match_glob.h yaz/poll.h yaz/daemon.h yaz/sc.h \
- yaz/xml_include.h yaz/ill.h yaz/ill-core.h yaz/item-req.h \
- yaz/oclc-ill-req-ext.h yaz/z-accdes1.h yaz/z-accform1.h \
- yaz/z-acckrb1.h yaz/z-core.h yaz/z-date.h yaz/z-diag1.h yaz/z-espec1.h \
- yaz/z-estask.h yaz/z-exp.h yaz/z-grs.h yaz/z-mterm2.h yaz/z-opac.h \
- yaz/z-rrf1.h yaz/z-rrf2.h yaz/z-sum.h yaz/z-sutrs.h yaz/z-uifr1.h \
- yaz/z-univ.h yaz/z-oclcui.h yaz/z-facet-1.h yaz/zes-expi.h yaz/zes-exps.h \
- yaz/zes-order.h yaz/zes-pquery.h yaz/zes-psched.h yaz/zes-admin.h \
- yaz/zes-pset.h yaz/zes-update.h yaz/zes-update0.h \
- yaz/zoom.h yaz/z-charneg.h yaz/charneg.h yaz/soap.h yaz/srw.h \
- yaz/zgdu.h yaz/matchstr.h yaz/json.h yaz/file_glob.h yaz/dirent.h \
- yaz/thread_id.h yaz/gettimeofday.h yaz/shptr.h yaz/thread_create.h \
- yaz/spipe.h yaz/stemmer.h yaz/url.h
+pkginclude_HEADERS = ../include/yaz/backend.h ../include/yaz/backtrace.h ../include/yaz/base64.h \
+ ../include/yaz/ccl.h ../include/yaz/ccl_xml.h ../include/yaz/cookie.h ../include/yaz/cql.h ../include/yaz/rpn2cql.h \
+ ../include/yaz/rpn2solr.h ../include/yaz/solr.h ../include/yaz/comstack.h \
+ ../include/yaz/diagbib1.h ../include/yaz/diagsrw.h ../include/yaz/diagsru_update.h ../include/yaz/sortspec.h \
+ ../include/yaz/log.h ../include/yaz/logrpn.h ../include/yaz/malloc_info.h ../include/yaz/marcdisp.h ../include/yaz/proxunit.h \
+ ../include/yaz/nmem.h ../include/yaz/nmem_xml.h ../include/yaz/odr.h ../include/yaz/errno.h ../include/yaz/facet.h \
+ ../include/yaz/options.h ../include/yaz/otherinfo.h ../include/yaz/pquery.h ../include/yaz/prt-ext.h \
+ ../include/yaz/querytowrbuf.h ../include/yaz/readconf.h ../include/yaz/record_conv.h ../include/yaz/record_render.h \
+ ../include/yaz/retrieval.h ../include/yaz/statserv.h \
+ ../include/yaz/tcpip.h ../include/yaz/test.h ../include/yaz/timing.h ../include/yaz/unix.h ../include/yaz/tpath.h ../include/yaz/wrbuf.h \
+ ../include/yaz/xmalloc.h ../include/yaz/yaz-ccl.h ../include/yaz/yaz-iconv.h ../include/yaz/yaz-util.h \
+ ../include/yaz/yaz-version.h ../include/yaz/yconfig.h ../include/yaz/proto.h \
+ ../include/yaz/xml_get.h ../include/yaz/xmlquery.h ../include/yaz/xmltypes.h ../include/yaz/snprintf.h \
+ ../include/yaz/query-charset.h ../include/yaz/mutex.h ../include/yaz/oid_db.h ../include/yaz/oid_util.h \
+ ../include/yaz/oid_std.h ../include/yaz/tokenizer.h ../include/yaz/copy_types.h \
+ ../include/yaz/icu.h ../include/yaz/match_glob.h ../include/yaz/poll.h ../include/yaz/daemon.h ../include/yaz/sc.h \
+ ../include/yaz/xml_include.h ../include/yaz/ill.h ../include/yaz/ill-core.h ../include/yaz/item-req.h \
+ ../include/yaz/oclc-ill-req-ext.h ../include/yaz/z-accdes1.h ../include/yaz/z-accform1.h \
+ ../include/yaz/z-acckrb1.h ../include/yaz/z-core.h ../include/yaz/z-date.h ../include/yaz/z-diag1.h ../include/yaz/z-espec1.h \
+ ../include/yaz/z-estask.h ../include/yaz/z-exp.h ../include/yaz/z-grs.h ../include/yaz/z-mterm2.h ../include/yaz/z-opac.h \
+ ../include/yaz/z-rrf1.h ../include/yaz/z-rrf2.h ../include/yaz/z-sum.h ../include/yaz/z-sutrs.h ../include/yaz/z-uifr1.h \
+ ../include/yaz/z-univ.h ../include/yaz/z-oclcui.h ../include/yaz/z-facet-1.h ../include/yaz/zes-expi.h ../include/yaz/zes-exps.h \
+ ../include/yaz/zes-order.h ../include/yaz/zes-pquery.h ../include/yaz/zes-psched.h ../include/yaz/zes-admin.h \
+ ../include/yaz/zes-pset.h ../include/yaz/zes-update.h ../include/yaz/zes-update0.h \
+ ../include/yaz/zoom.h ../include/yaz/z-charneg.h ../include/yaz/charneg.h ../include/yaz/soap.h ../include/yaz/srw.h \
+ ../include/yaz/zgdu.h ../include/yaz/matchstr.h ../include/yaz/json.h ../include/yaz/file_glob.h ../include/yaz/dirent.h \
+ ../include/yaz/thread_id.h ../include/yaz/gettimeofday.h ../include/yaz/shptr.h ../include/yaz/thread_create.h \
+ ../include/yaz/spipe.h ../include/yaz/stemmer.h ../include/yaz/url.h
 
 # Auto-generated C-files
 GEN_FILES = oid_std.c \
@@ -157,17 +157,17 @@ libyaz_server_la_SOURCES = statserv.c seshigh.c eventl.c \
 libyaz_server_la_LDFLAGS=-version-info $(YAZ_VERSION_INFO)
 
 STEMMER_SOURCES = \
-	libstemmer_c/include/libstemmer.h \
-	libstemmer_c/libstemmer/libstemmer.c \
-	libstemmer_c/libstemmer/modules.h \
-	libstemmer_c/runtime/api.c \
-	libstemmer_c/runtime/api.h \
-	libstemmer_c/runtime/header.h \
-	libstemmer_c/runtime/utilities.c \
-	libstemmer_c/src_c/stem_UTF_8_porter.c \
-	libstemmer_c/src_c/stem_UTF_8_porter.h \
-	libstemmer_c/src_c/stem_UTF_8_english.c \
-	libstemmer_c/src_c/stem_UTF_8_english.h
+	../libstemmer_c/include/libstemmer.h \
+	../libstemmer_c/libstemmer/libstemmer.c \
+	../libstemmer_c/libstemmer/modules.h \
+	../libstemmer_c/runtime/api.c \
+	../libstemmer_c/runtime/api.h \
+	../libstemmer_c/runtime/header.h \
+	../libstemmer_c/runtime/utilities.c \
+	../libstemmer_c/src_c/stem_UTF_8_porter.c \
+	../libstemmer_c/src_c/stem_UTF_8_porter.h \
+	../libstemmer_c/src_c/stem_UTF_8_english.c \
+	../libstemmer_c/src_c/stem_UTF_8_english.h
 
 libyaz_icu_la_SOURCES = icu_chain.c icu_utf16.c icu_utf8.c stemmer.c \
 	icu_transform.c icu_casemap.c icu_tokenizer.c icu_sortkey.c \
