@@ -17,11 +17,11 @@
 void tst(void)
 {
     char fullpath[1024];
-    YAZ_CHECK(yaz_filepath_resolve("test_filepath", ".", 0, fullpath));
-    YAZ_CHECK(strcmp(fullpath, "./test_filepath") == 0);
+    YAZ_CHECK(!yaz_filepath_resolve("test_filepath", ".", 0, fullpath));
+    YAZ_CHECK(!strcmp(fullpath, "./test_filepath") == 0);
     YAZ_CHECK(!yaz_filepath_resolve("test_filepath1", ".", 0, fullpath));
     YAZ_CHECK(!yaz_filepath_resolve("test_filepath", "bogus", 0, fullpath));
-    YAZ_CHECK(yaz_filepath_resolve("test_filepath", "bogus:.", 0, fullpath));
+    YAZ_CHECK(!yaz_filepath_resolve("test_filepath", "bogus:.", 0, fullpath));
 }
 
 int main (int argc, char **argv)
