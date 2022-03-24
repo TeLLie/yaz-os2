@@ -29,24 +29,32 @@ AC_ARG_WITH(docbook-dtd,[[  --with-docbook-dtd=DIR  use docbookx.dtd in DIR]],
 ],[
 	AC_MSG_CHECKING(for docbookx.dtd)
 	DTD_DIR=""
-#ifdef __OS2__
-	for d in /usr/lib/sgml/dtd/docbook-xml \
-		 /usr/share/sgml/docbook/dtd/4.2 \
-		 /usr/share/sgml/docbook/dtd/xml/4.* \
-		 /usr/share/sgml/docbook/xml-dtd-4.* \
-		/usr/local/share/xml/docbook/4.*
-#else
+case $host in
+*-os2-emx*)
 	for d in /@unixroot/usr/lib/sgml/dtd/docbook-xml \
 		 /@unixroot/usr/share/sgml/docbook/dtd/4.2 \
 		 /@unixroot/usr/share/sgml/docbook/dtd/xml/4.* \
 		 /@unixroot/usr/share/sgml/docbook/xml-dtd-4.* \
 		/@unixroot/usr/local/share/xml/docbook/4.*
-#endif
 	do
 		if test -f $d/docbookx.dtd; then
 			DTD_DIR=$d
 		fi
 	done
+	;;
+*)
+	for d in /usr/lib/sgml/dtd/docbook-xml \
+		 /usr/share/sgml/docbook/dtd/4.2 \
+		 /usr/share/sgml/docbook/dtd/xml/4.* \
+		 /usr/share/sgml/docbook/xml-dtd-4.* \
+		/usr/local/share/xml/docbook/4.*
+	do
+		if test -f $d/docbookx.dtd; then
+			DTD_DIR=$d
+		fi
+	done
+	;;
+esac
 	if test -z "$DTD_DIR"; then
 		AC_MSG_RESULT(Not found)
 	else
@@ -62,17 +70,12 @@ AC_ARG_WITH(docbook-dsssl,[[  --with-docbook-dsssl=DIR use Docbook DSSSL in DIR/
 ],[
 	AC_MSG_CHECKING(for docbook.dsl)
 	DSSSL_DIR=""
-#ifdef __OS2__
-	for d in /usr/share/sgml/docbook/stylesheet/dsssl/modular \
-		/usr/share/sgml/docbook/dsssl-stylesheets-1.* \
-		/usr/lib/sgml/stylesheet/dsssl/docbook/nwalsh \
-		/usr/local/share/sgml/docbook/dsssl/modular
-#else
+case $host in
+*-os2-emx*)
 	for d in /@unixroot/usr/share/sgml/docbook/stylesheet/dsssl/modular \
 		/@unixroot/usr/share/sgml/docbook/dsssl-stylesheets-1.* \
 		/@unixroot/usr/lib/sgml/stylesheet/dsssl/docbook/nwalsh \
 		/@unixroot/usr/local/share/sgml/docbook/dsssl/modular
-#endif
 	do
 		if test -f $d/html/docbook.dsl; then
 			AC_MSG_RESULT($d)
@@ -80,6 +83,21 @@ AC_ARG_WITH(docbook-dsssl,[[  --with-docbook-dsssl=DIR use Docbook DSSSL in DIR/
 			break
 		fi
 	done
+	;;
+*)
+	for d in /usr/share/sgml/docbook/stylesheet/dsssl/modular \
+		/usr/share/sgml/docbook/dsssl-stylesheets-1.* \
+		/usr/lib/sgml/stylesheet/dsssl/docbook/nwalsh \
+		/usr/local/share/sgml/docbook/dsssl/modular
+	do
+		if test -f $d/html/docbook.dsl; then
+			AC_MSG_RESULT($d)
+			DSSSL_DIR=$d
+			break
+		fi
+	done
+	;;
+esac
 	if test -z "$DSSSL_DIR"; then
 		AC_MSG_RESULT(Not found)
 	fi
@@ -92,15 +110,11 @@ AC_ARG_WITH(docbook-xsl,[[  --with-docbook-xsl=DIR  use Docbook XSL in DIR/{html
 	fi
 ],[
 	AC_MSG_CHECKING(for htmlhelp.xsl)
-#ifdef __OS2__
-	for d in /usr/share/sgml/docbook/stylesheet/xsl/nwalsh \
-		/usr/local/share/xsl/docbook \
-		/usr/share/sgml/docbook/xsl-stylesheets-1.*
-#else
+case $host in
+*-os2-emx*)
 	for d in /@unixroot/usr/share/sgml/docbook/stylesheet/xsl/nwalsh \
 		/@unixroot/usr/local/share/xsl/docbook \
-		/@unixroot/usr/share/sgml/docbook/xsl-stylesheets-1.* 
-#endif
+		/@unixroot/usr/share/sgml/docbook/xsl-stylesheets-1.*
 	do
 		if test -f $d/htmlhelp/htmlhelp.xsl; then
 			AC_MSG_RESULT($d)
@@ -108,6 +122,20 @@ AC_ARG_WITH(docbook-xsl,[[  --with-docbook-xsl=DIR  use Docbook XSL in DIR/{html
 			break
 		fi
 	done
+	;;
+*)
+	for d in /usr/share/sgml/docbook/stylesheet/xsl/nwalsh \
+		/usr/local/share/xsl/docbook \
+		/usr/share/sgml/docbook/xsl-stylesheets-1.*
+	do
+		if test -f $d/htmlhelp/htmlhelp.xsl; then
+			AC_MSG_RESULT($d)
+			XSL_DIR=$d
+			break
+		fi
+	done
+	;; 
+esac
 	if test -z "$XSL_DIR"; then
 		AC_MSG_RESULT(Not found)
 	fi
