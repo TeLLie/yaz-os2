@@ -189,7 +189,7 @@ static void rotate_log(const char *cur_fname)
 {
     int i;
 
-#ifdef WIN32
+#if defined(WIN32) || defined(__OS2__)
     /* windows can't rename a file if it is open */
     yaz_log_close();
 #endif
@@ -347,7 +347,7 @@ static void yaz_log_open_check(struct tm *tm, int force, const char *filemode)
     if (force && *cur_filename)
     {
         FILE *new_file;
-#ifdef WIN32
+#if defined(WIN32) || defined(__OS2__)
         yaz_log_close();
 #endif
         if (!strncmp(cur_filename, "fd=", 3))
