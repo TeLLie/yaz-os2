@@ -25,6 +25,8 @@ for f in `cat ${srcdir}/cql2xcqlsample`; do
 		ERR2=cql/$secno.$testno.err.tmp
 		DIFF=cql/$secno.$testno.diff
 		../util/cql2xcql "$f" >$OUT2 2>$ERR2
+                dos2unix -q $OUT2
+                dos2unix -q $ERR2
 		if test -f $OUT1 -a -f $ERR1; then
 			if diff $OUT1 $OUT2 >$DIFF; then
 				rm $DIFF

@@ -30,6 +30,7 @@ binmarc_convert() {
         OLD=${srcdir}/${PREFIX}${fb}.${SUFFIX}
         DIFF=`basename ${f}`.diff
         ../util/yaz-marcdump -f $CHR -t utf-8 -i marc -o ${OUTPUT_FORMAT} $f > $NEW
+        dos2unix -q $NEW
         if test $? != "0"; then
        	    echo "$f: yaz-marcdump returned error"
     	    ecode=1
@@ -79,6 +80,7 @@ binmarc_convert() {
     	    DIFF=`basename ${f}`.diff
    	    # echo "../util/yaz-marcdump -f utf-8 -t utf-8 -i ${REVERT_FORMAT} -o marc $f > $NEW"
     	    ../util/yaz-marcdump -f utf-8 -t utf-8 -i ${REVERT_FORMAT} -o marc $f > $NEW
+            dos2unix -q $NEW
     	    if test $? != "0"; then
     		echo "Failed decode of $f"
     		ecode=1

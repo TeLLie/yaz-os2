@@ -13,6 +13,7 @@ for f in ${srcdir}/marccol?.u8.marc; do
     NEW=${fb}.1.lst.new
     OLD=${srcdir}/${fb}.1.lst
     ../util/yaz-marcdump -f utf-8 -t utf-8 $f >$NEW
+    dos2unix -q $NEW
     if test $? != "0"; then
 	echo "$f: yaz-marcdump returned error"
 	ecode=1
@@ -37,6 +38,7 @@ for f in ${srcdir}/marccol?.u8.marc; do
     NEW=${fb}.2.lst.new
     OLD=${srcdir}/${fb}.2.lst
     ../util/yaz-marcdump -l 9=97 -f marc8 -t utf-8 $filem >$NEW
+    dos2unix -q $NEW
     if test $? != "0"; then
 	echo "$f: yaz-marcdump returned error"
 	ecode=1
