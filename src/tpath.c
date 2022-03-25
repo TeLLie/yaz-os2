@@ -128,7 +128,7 @@ int yaz_is_abspath(const char *p)
 {
     if (*p == '/')
         return 1;
-#ifdef WIN32
+#if defined (WIN32) || defined (__OS2__)
     if (*p == '\\')
         return 1;
     if (*p && p[1] == ':' &&
