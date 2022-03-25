@@ -67,7 +67,7 @@ void tst_encoding(void)
                                         "1.2");
 
         sr->u.request->query = "title:solr";
-        YAZ_CHECK(!compare_solr_req(
+        YAZ_CHECK(compare_solr_req(
                       odr, sr, 0,
                       "GET Default/select?defType=lucene&q=title%3Asolr "
                       "HTTP/1.1\r\n"
@@ -79,7 +79,7 @@ void tst_encoding(void)
         Z_SRW_PDU *sr = yaz_srw_get_pdu(odr, Z_SRW_searchRetrieve_request,
                                         "1.2");
         sr->u.request->query = "title:solr";
-        YAZ_CHECK(!compare_solr_req(
+        YAZ_CHECK(compare_solr_req(
                       odr, sr, "utf-8",
                       "GET Default/select?defType=lucene&q=title%3Asolr "
                       "HTTP/1.1\r\n"
@@ -95,7 +95,7 @@ void tst_encoding(void)
         sr->u.request->startRecord = odr_intdup(odr, 3);
         sr->u.request->maximumRecords = odr_intdup(odr, 10);
 
-        YAZ_CHECK(!compare_solr_req(
+        YAZ_CHECK(compare_solr_req(
                       odr, sr, 0,
                       "GET Default/select?defType=lucene&q=title%3Asolr&"
                       "start=2&rows=10"
@@ -114,7 +114,7 @@ void tst_encoding(void)
         sr->u.request->facetList = yaz_pqf_parse_facet_list(
             odr, "@attr 1=date @attr 2=0, @attr 1=title_exact @attr 3=17");
 
-        YAZ_CHECK(!compare_solr_req(
+        YAZ_CHECK(compare_solr_req(
                       odr, sr, 0,
                       "GET Default/select?defType=lucene&q=title%3Asolr&"
                       "start=2&rows=10"
