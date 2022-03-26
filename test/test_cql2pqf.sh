@@ -25,6 +25,8 @@ while read f; do
 		ERR2=cql2pqf/$secno.$testno.err.tmp
 		DIFF=cql2pqf/$secno.$testno.diff
 		../util/cql2pqf -v ${srcdir}/../etc/pqf.properties "$f" >$OUT2 2>$ERR2
+                dos2unix -q $OUT2
+                dos2unix -q $ERR2
 		if test -f $OUT1 -a -f $ERR1; then
 			if diff $OUT1 $OUT2 >$DIFF; then
 				rm $DIFF
