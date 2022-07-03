@@ -1,0 +1,8 @@
+usr/include/yaz
+usr/lib/*/pkgconfig/*.pc
+usr/lib/*/libyaz*.a
+usr/lib/*/libyaz*.so
+usr/bin/yaz-config
+usr/bin/yaz-asncomp
+usr/share/aclocal/yaz.m4
+usr/share/yaz

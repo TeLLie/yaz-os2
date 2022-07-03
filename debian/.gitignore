@@ -1,0 +1,14 @@
+copyright
+files
+libyaz5
+libyaz5-dbg
+libyaz5-dev
+yaz-icu
+yaz-illclient
+tmp
+yaz
+yaz-doc
+*.debhelper.log
+*.substvars
+*.postinst.debhelper
+*.postrm.debhelper

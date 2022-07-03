@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Makefile.in
 aclocal.m4
 client/Makefile.in
@@ -23,3 +24,36 @@ zoom/Makefile.in
 ztest/Makefile.in
 autom4te.cache/
 src/config.h.in~
+=======
+Makefile
+Makefile.in
+aclocal.m4
+config
+config.cache
+config.status
+configure
+libtool
+yaz-config
+yaz.pc
+yaz-icu.pc
+yaz-server.pc
+Doxyfile
+dox
+autom4te.cache
+ChangeLog
+build-stamp
+config.guess
+config.sub
+Default
+*~
+.settings
+build
+deb-src
+*.o
+*.lo
+*.la
+*.a
+*.log
+.deps
+.libs
+>>>>>>> master

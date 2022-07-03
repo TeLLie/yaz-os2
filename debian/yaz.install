@@ -1,0 +1,8 @@
+usr/bin/yaz-client
+usr/bin/yaz-ztest
+usr/bin/zoomsh
+usr/bin/yaz-marcdump
+usr/bin/yaz-iconv
+usr/bin/yaz-json-parse
+usr/bin/yaz-url
+usr/bin/yaz-record-conv

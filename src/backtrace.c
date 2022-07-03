@@ -32,6 +32,10 @@
 #include <sys/types.h>
 #endif
 
+#if HAVE_SYS_PRCTL_H
+#include <sys/prctl.h>
+#endif
+
 #if HAVE_EXECINFO_H
 #include <execinfo.h>
 #endif
@@ -98,6 +102,9 @@ static void yaz_invoke_gdb(void)
     {  /* parent */
         int sec = 0;
 
+#ifdef PR_SET_PTRACER
+        prctl(PR_SET_PTRACER, pid, 0, 0, 0);
+#endif
         close(fds[0]);
         write(fds[1], "quit\n", 5);
         while (1)
@@ -127,8 +134,7 @@ static void yaz_panic_alarm(int sig)
     const char *cp = "backtrace: backtrace hangs\n";
 
     write(yaz_panic_fd, cp, strlen(cp));
-    yaz_invoke_gdb();
-    kill(getpid(), yaz_panic_signal);
+    _exit(1);
 }
 
 static void yaz_invoke_backtrace(int sig)
