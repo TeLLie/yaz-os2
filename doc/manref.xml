@@ -2,7 +2,7 @@
 <refentry id="yaz-client">
  <refentryinfo>
   <productname class="trade">YAZ</productname>
-  <productnumber>5.31.1</productnumber>
+  <productnumber>5.33.0</productnumber>
   <orgname>Index Data</orgname>
  </refentryinfo>
 
@@ -354,6 +354,15 @@
       for case sensitive or <literal moreinfo="none">i</literal> for case insensitive, and
       <literal moreinfo="none">&lt;</literal> for ascending order or <literal moreinfo="none">&gt;</literal>
       for descending order.
+     </para>
+     <para>
+      Example using sort criterion with attributes use=local-number
+      and structure=numeric and ascending flag:
+      <literal moreinfo="none">1=12,4=109 &lt;</literal>
+     </para>
+     <para>
+      Another example with "Title" sort field and descending flag:
+      <literal moreinfo="none">Title &gt;</literal>
      </para>
     </listitem>
    </varlistentry>
@@ -1016,7 +1025,7 @@
 <refentry id="yaz-ztest">
  <refentryinfo>
   <productname class="trade">YAZ</productname>
-  <productnumber>5.31.1</productnumber>
+  <productnumber>5.33.0</productnumber>
   <orgname>Index Data</orgname>
  </refentryinfo>
 
@@ -1685,7 +1694,7 @@ End:
 <refentry id="yaz-config">
  <refentryinfo>
   <productname class="trade">YAZ</productname>
-  <productnumber>5.31.1</productnumber>
+  <productnumber>5.33.0</productnumber>
   <orgname>Index Data</orgname>
  </refentryinfo>
 
@@ -1823,7 +1832,7 @@ End:
 <refentry id="yaz">
  <refentryinfo>
   <productname class="trade">YAZ</productname>
-  <productnumber>5.31.1</productnumber>
+  <productnumber>5.33.0</productnumber>
   <orgname>Index Data</orgname>
  </refentryinfo>
 
@@ -1851,7 +1860,7 @@ End:
 
  <refsect1><title>COPYRIGHT</title>
   <para>
-   Copyright © 1995-2021 Index Data.
+   Copyright © 1995-2022 Index Data.
   </para>
   <para>
    All rights reserved.
@@ -1939,7 +1948,7 @@ End:
 <refentry id="zoomsh">
  <refentryinfo>
   <productname class="trade">YAZ</productname>
-  <productnumber>5.31.1</productnumber>
+  <productnumber>5.33.0</productnumber>
   <orgname>Index Data</orgname>
  </refentryinfo>
 
@@ -2117,7 +2126,7 @@ ZOOM&gt;quit
 <refentry id="yaz-asncomp">
  <refentryinfo>
   <productname class="trade">YAZ</productname>
-  <productnumber>5.31.1</productnumber>
+  <productnumber>5.33.0</productnumber>
   <orgname>Index Data</orgname>
  </refentryinfo>
 
@@ -2361,7 +2370,7 @@ ZOOM&gt;quit
 <refentry id="yaz-marcdump">
  <refentryinfo>
   <productname class="trade">YAZ</productname>
-  <productnumber>5.31.1</productnumber>
+  <productnumber>5.33.0</productnumber>
   <orgname>Index Data</orgname>
  </refentryinfo>
 
@@ -2387,8 +2396,11 @@ ZOOM&gt;quit
    <arg choice="opt" rep="norepeat"><option>-c <replaceable>cfile</replaceable></option></arg>
    <arg choice="opt" rep="norepeat"><option>-s <replaceable>prefix</replaceable></option></arg>
    <arg choice="opt" rep="norepeat"><option>-C <replaceable>size</replaceable></option></arg>
+   <arg choice="opt" rep="norepeat"><option>-O <replaceable>offset</replaceable></option></arg>
+   <arg choice="opt" rep="norepeat"><option>-L <replaceable>limit</replaceable></option></arg>
    <arg choice="opt" rep="norepeat"><option>-n</option></arg>
    <arg choice="opt" rep="norepeat"><option>-p</option></arg>
+   <arg choice="opt" rep="norepeat"><option>-r</option></arg>
    <arg choice="opt" rep="norepeat"><option>-v</option></arg>
    <arg choice="opt" rep="norepeat"><option>-V</option></arg>
    <arg choice="opt" rep="repeat">file</arg>
@@ -2508,6 +2520,24 @@ ZOOM&gt;quit
    </varlistentry>
 
    <varlistentry>
+    <term>-O <replaceable>offset</replaceable></term>
+    <listitem><para>
+     Integer offset for at what position records whould be
+     written. 0=first record, 1=second, .. With -L option, this
+     allows a specific range of records to be processed.
+     </para></listitem>
+   </varlistentry>
+
+   <varlistentry>
+    <term>-L <replaceable>limit</replaceable></term>
+    <listitem><para>
+     Integer limit for how many records should at most be written.
+     With -O option, this allows a specific range of records to be
+     processed.
+     </para></listitem>
+   </varlistentry>
+
+   <varlistentry>
     <term>-p</term>
     <listitem><para>
       Makes yaz-marcdump print record number and input file offset
@@ -2519,6 +2549,14 @@ ZOOM&gt;quit
     <term>-n</term>
     <listitem><para>
       MARC output is omitted so that MARC input is only checked.
+     </para></listitem>
+   </varlistentry>
+
+   <varlistentry>
+    <term>-r</term>
+    <listitem><para>
+      Writes to stderr a summary about number of records read by
+      yaz-marcdump.
      </para></listitem>
    </varlistentry>
 
@@ -2594,7 +2632,7 @@ ZOOM&gt;quit
 <refentry id="yaz-iconv">
  <refentryinfo>
   <productname class="trade">YAZ</productname>
-  <productnumber>5.31.1</productnumber>
+  <productnumber>5.33.0</productnumber>
   <orgname>Index Data</orgname>
  </refentryinfo>
 
@@ -2794,7 +2832,7 @@ ZOOM&gt;quit
 <refentry id="yaz-log">
  <refentryinfo>
   <productname class="trade">YAZ</productname>
-  <productnumber>5.31.1</productnumber>
+  <productnumber>5.33.0</productnumber>
   <orgname>Index Data</orgname>
  </refentryinfo>
 
@@ -3065,7 +3103,7 @@ ZOOM&gt;quit
 <refentry id="yaz-illclient">
  <refentryinfo>
   <productname class="trade">YAZ</productname>
-  <productnumber>5.31.1</productnumber>
+  <productnumber>5.33.0</productnumber>
   <orgname>Index Data</orgname>
  </refentryinfo>
 
@@ -3179,7 +3217,7 @@ ZOOM&gt;quit
 <refentry id="yaz-icu">
  <refentryinfo>
   <productname class="trade">YAZ</productname>
-  <productnumber>5.31.1</productnumber>
+  <productnumber>5.33.0</productnumber>
   <orgname>Index Data</orgname>
  </refentryinfo>
 
@@ -3454,7 +3492,7 @@ ZOOM&gt;quit
 <refentry id="yaz-url">
  <refentryinfo>
   <productname class="trade">YAZ</productname>
-  <productnumber>5.31.1</productnumber>
+  <productnumber>5.33.0</productnumber>
   <orgname>Index Data</orgname>
  </refentryinfo>
 
@@ -3578,7 +3616,7 @@ ZOOM&gt;quit
 <refentry id="bib1">
  <refentryinfo>
   <productname class="trade">YAZ</productname>
-  <productnumber>5.31.1</productnumber>
+  <productnumber>5.33.0</productnumber>
   <orgname>Index Data</orgname>
  </refentryinfo>
 
@@ -3823,7 +3861,7 @@ ZOOM&gt;quit
 <refentry id="yaz-json-parse">
  <refentryinfo>
   <productname class="trade">YAZ</productname>
-  <productnumber>5.31.1</productnumber>
+  <productnumber>5.33.0</productnumber>
   <orgname>Index Data</orgname>
  </refentryinfo>
 
@@ -3884,7 +3922,7 @@ ZOOM&gt;quit
 <refentry id="yaz-record-iconv">
  <refentryinfo>
   <productname class="trade">YAZ</productname>
-  <productnumber>5.31.1</productnumber>
+  <productnumber>5.33.0</productnumber>
   <orgname>Index Data</orgname>
  </refentryinfo>
 

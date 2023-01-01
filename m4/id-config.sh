@@ -36,7 +36,7 @@ $aclocal -I m4
 if grep AC_CONFIG_HEADERS configure.ac >/dev/null; then
     $autoheader
 fi
-if grep AM_PROG_LIBTOOL configure.ac >/dev/null; then
+if grep ^LT_INIT configure.ac >/dev/null; then
     has_libtool=true
     $libtoolize --automake --force 
 else

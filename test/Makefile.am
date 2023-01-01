@@ -11,7 +11,8 @@ check_PROGRAMS = test_ccl test_comstack test_cql2ccl \
  test_record_conv test_rpn2cql test_rpn2solr test_retrieval \
  test_shared_ptr test_soap1 test_soap2 test_solr test_sortspec \
  test_timing test_tpath test_wrbuf \
- test_xmalloc test_xml_include test_xmlquery test_zgdu
+ test_xmalloc test_xml_include test_xmlquery test_zgdu \
+ test_marc_read_sax
 
 check_SCRIPTS = test_marc.sh test_marccol.sh test_cql2xcql.sh \
 	test_cql2pqf.sh test_icu.sh
@@ -21,11 +22,6 @@ TESTS = $(check_PROGRAMS) $(check_SCRIPTS)
 EXTRA_DIST = tstodr.asn test_odrcodec.c test_odrcodec.h cql2xcqlsample \
  cql2pqf-order.txt cql2pqfsample \
  $(check_SCRIPTS) \
- marccol1.u8.1.lst marccol1.u8.2.lst \
- marccol2.u8.1.lst marccol2.u8.2.lst \
- marccol3.u8.1.lst marccol3.u8.2.lst \
- marccol4.u8.1.lst marccol4.u8.2.lst \
- marccol5.u8.1.lst marccol5.u8.2.lst \
  test_icu.0.input test_icu.0.output \
  test_icu.1.input test_icu.1.output \
  test_icu.2.input test_icu.2.output \
@@ -43,10 +39,9 @@ dist-hook:
 	cp $(srcdir)/cql/*.err $(srcdir)/cql/*.out $(distdir)/cql
 	mkdir -p $(distdir)/cql2pqf
 	cp $(srcdir)/cql2pqf/*.err $(srcdir)/cql2pqf/*.out $(distdir)/cql2pqf
-	cp $(srcdir)/*.chr $(distdir)
-	cp $(srcdir)/*.marc $(distdir)
 	cp $(srcdir)/*.xml $(distdir)
-	cp $(srcdir)/*.json $(distdir)
+	mkdir -p $(distdir)/marc-files
+	cp $(srcdir)/marc-files/* $(distdir)/marc-files
 
 # Rule for generating codecs for our small ASN.1 spec
 test_odrcodec.c test_odrcodec.h: tstodr.asn $(YAZCOMP)
@@ -96,3 +91,4 @@ test_shared_ptr_SOURCES = test_shared_ptr.c
 test_libstemmer_SOURCES = test_libstemmer.c
 test_embed_record_SOURCES = test_embed_record.c
 test_zgdu_SOURCES = test_zgdu.c
+test_marc_read_sax_SOURCES = test_marc_read_sax.c

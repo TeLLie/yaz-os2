@@ -9,25 +9,25 @@ if test -n "$docdir"; then
         docdir="${datadir}/doc/${PACKAGE}"
         AC_SUBST([docdir])
 fi
-AC_SUBST(XSLTPROC_COMPILE)
+AC_SUBST([XSLTPROC_COMPILE])
 XSLTPROC_COMPILE='xsltproc --xinclude -path ".:$(srcdir)"'
-AC_SUBST(MAN_COMPILE)
+AC_SUBST([MAN_COMPILE])
 MAN_COMPILE='$(XSLTPROC_COMPILE) $(srcdir)/common/id.man.xsl'
-AC_SUBST(HTML_COMPILE)
+AC_SUBST([HTML_COMPILE])
 HTML_COMPILE='$(XSLTPROC_COMPILE) $(srcdir)/common/id.htmlhelp.xsl'
-AC_SUBST(TKL_COMPILE)
+AC_SUBST([TKL_COMPILE])
 TKL_COMPILE='$(XSLTPROC_COMPILE) $(srcdir)/common/id.tkl.xsl'
-AC_SUBST(PDF_COMPILE)
+AC_SUBST([PDF_COMPILE])
 PDF_COMPILE='dblatex -P latex.class.options=a4paper,12pt,twoside,openright'
 
-AC_SUBST(DTD_DIR)	
-AC_ARG_WITH(docbook-dtd,[[  --with-docbook-dtd=DIR  use docbookx.dtd in DIR]],
+AC_SUBST([DTD_DIR])
+AC_ARG_WITH([docbook-dtd],[[  --with-docbook-dtd=DIR  use docbookx.dtd in DIR]],
 [
 	if test -f "$withval/docbookx.dtd"; then
 		DTD_DIR=$withval
 	fi
 ],[
-	AC_MSG_CHECKING(for docbookx.dtd)
+	AC_MSG_CHECKING([for docbookx.dtd])
 	DTD_DIR=""
 	for d in /usr/lib/sgml/dtd/docbook-xml \
 		 /usr/share/sgml/docbook/dtd/4.2 \
@@ -40,19 +40,19 @@ AC_ARG_WITH(docbook-dtd,[[  --with-docbook-dtd=DIR  use docbookx.dtd in DIR]],
 		fi
 	done
 	if test -z "$DTD_DIR"; then
-		AC_MSG_RESULT(Not found)
+		AC_MSG_RESULT([Not found])
 	else
-		AC_MSG_RESULT($d)
+		AC_MSG_RESULT([$d])
 	fi
 ])
-AC_SUBST(DSSSL_DIR)
-AC_ARG_WITH(docbook-dsssl,[[  --with-docbook-dsssl=DIR use Docbook DSSSL in DIR/{html,print}/docbook.dsl]],
+AC_SUBST([DSSSL_DIR])
+AC_ARG_WITH([docbook-dsssl],[[  --with-docbook-dsssl=DIR use Docbook DSSSL in DIR/{html,print}/docbook.dsl]],
 [
 	if test -f "$withval/html/docbook.dsl"; then
 		DSSSL_DIR=$withval
 	fi
 ],[
-	AC_MSG_CHECKING(for docbook.dsl)
+	AC_MSG_CHECKING([for docbook.dsl])
 	DSSSL_DIR=""
 	for d in /usr/share/sgml/docbook/stylesheet/dsssl/modular \
 		/usr/share/sgml/docbook/dsssl-stylesheets-1.* \
@@ -60,35 +60,35 @@ AC_ARG_WITH(docbook-dsssl,[[  --with-docbook-dsssl=DIR use Docbook DSSSL in DIR/
 		/usr/local/share/sgml/docbook/dsssl/modular
 	do
 		if test -f $d/html/docbook.dsl; then
-			AC_MSG_RESULT($d)
+			AC_MSG_RESULT([$d])
 			DSSSL_DIR=$d
 			break
 		fi
 	done
 	if test -z "$DSSSL_DIR"; then
-		AC_MSG_RESULT(Not found)
+		AC_MSG_RESULT([Not found])
 	fi
 ])
-AC_SUBST(XSL_DIR)
-AC_ARG_WITH(docbook-xsl,[[  --with-docbook-xsl=DIR  use Docbook XSL in DIR/{htmlhelp,xhtml}]],
+AC_SUBST([XSL_DIR])
+AC_ARG_WITH([docbook-xsl],[[  --with-docbook-xsl=DIR  use Docbook XSL in DIR/{htmlhelp,xhtml}]],
 [
 	if test -f "$withval/htmlhelp/htmlhelp.xsl"; then
 		XSL_DIR=$withval
 	fi
 ],[
-	AC_MSG_CHECKING(for htmlhelp.xsl)
+	AC_MSG_CHECKING([for htmlhelp.xsl])
 	for d in /usr/share/sgml/docbook/stylesheet/xsl/nwalsh \
 		/usr/local/share/xsl/docbook \
 		/usr/share/sgml/docbook/xsl-stylesheets-1.* 
 	do
 		if test -f $d/htmlhelp/htmlhelp.xsl; then
-			AC_MSG_RESULT($d)
+			AC_MSG_RESULT([$d])
 			XSL_DIR=$d
 			break
 		fi
 	done
 	if test -z "$XSL_DIR"; then
-		AC_MSG_RESULT(Not found)
+		AC_MSG_RESULT([Not found])
 	fi
 ])
 ]) 
@@ -112,10 +112,10 @@ AC_DEFUN([YAZ_CONFIG],
 			fi
 		done
 		if test "x$yazconfig" = "xNONE"; then
-			AC_PATH_PROG(yazconfig, yaz-config, NONE)
+			AC_PATH_PROG([yazconfig], [yaz-config], [NONE])
 		fi
 	fi
-	AC_MSG_CHECKING(for YAZ via yaz-config)
+	AC_MSG_CHECKING([for YAZ via yaz-config])
 	if $yazconfig --version >/dev/null 2>&1; then
 		YAZLIB=`$yazconfig --libs $1`
 		# if this is empty, it's a simple version YAZ 1.6 script
@@ -129,7 +129,7 @@ AC_DEFUN([YAZ_CONFIG],
 		fi
 		AC_MSG_RESULT([$yazconfig])
 	else
-		AC_MSG_RESULT(Not found)
+		AC_MSG_RESULT([Not found])
 		YAZVERSION=NONE
 	fi
 	if test "X$YAZVERSION" != "XNONE"; then
@@ -151,13 +151,13 @@ dnl argument 1 is components (server,icu,static)
 dnl argument 2 is version required (or later)
 AC_DEFUN([YAZ_INIT],
 [
-	AC_SUBST(YAZLIB)
-	AC_SUBST(YAZLALIB)
-	AC_SUBST(YAZINC)
-	AC_SUBST(YAZVERSION)
+	AC_SUBST([YAZLIB])
+	AC_SUBST([YAZLALIB])
+	AC_SUBST([YAZINC])
+	AC_SUBST([YAZVERSION])
 	yazconfig=NONE
 	yazpath=NONE
-	AC_ARG_WITH(yaz, [  --with-yaz=DIR          use yaz-config in DIR; DIR=pkg to use pkg-config], [yazpath=$withval])
+	AC_ARG_WITH([yaz], [  --with-yaz=DIR          use yaz-config in DIR; DIR=pkg to use pkg-config], [yazpath=$withval])
 	if test "x$yazpath" = "xpkg"; then
 		COMP=yaz
 		for i in $1; do

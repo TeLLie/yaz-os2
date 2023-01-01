@@ -2,7 +2,7 @@ dnl This file is part of the YAZ toolkit.
 dnl Copyright (C) Index Data
 dnl See the file LICENSE for details.
 AC_PREREQ([2.69])
-AC_INIT([yaz],[m4_esyscmd(. ./IDMETA; printf $VERSION)],[info@indexdata.com])
+AC_INIT([yaz],[m4_esyscmd([. ./IDMETA; printf $VERSION])],[info@indexdata.com])
 AC_CONFIG_HEADERS([src/config.h])
 AC_CONFIG_SRCDIR([configure.ac])
 AC_CONFIG_AUX_DIR([config])
@@ -20,18 +20,16 @@ AC_CHECK_PROGS([TCLSH], [tclsh tclsh8.5 tclsh8.4 tclsh8.3 tclsh8.2], [tclsh])
 AC_PROG_INSTALL
 LT_INIT
 AM_PROG_CC_C_O
-PKG_PROG_PKG_CONFIG
-pkgconfigpath="$PKG_CONFIG"
-test -z "$pkgconfigpath" && pkgconfigpath=NONE
+AC_PATH_TOOL([PKG_CONFIG],[pkg-config],[NONE])
 dnl
 YAZ_DOC
 dnl
 dnl
 AC_C_BIGENDIAN
-AC_CHECK_HEADERS([dirent.h fnmatch.h wchar.h locale.h langinfo.h pwd.h
-		  unistd.h sys/select.h sys/socket.h sys/stat.h sys/time.h
-		  sys/times.h sys/types.h sys/un.h sys/wait.h sys/prctl.h
-		  netdb.h arpa/inet.h netinet/tcp.h netinet/in_systm.h
+AC_CHECK_HEADERS([dirent.h fnmatch.h wchar.h locale.h langinfo.h pwd.h \
+		  unistd.h sys/select.h sys/socket.h sys/stat.h sys/time.h \
+		  sys/times.h sys/types.h sys/un.h sys/wait.h sys/prctl.h \
+		  netdb.h arpa/inet.h netinet/tcp.h netinet/in_systm.h \
 		  execinfo.h],[],[],[])
 AC_CHECK_HEADERS([net/if.h netinet/in.h netinet/if_ether.h],[],[],[
  #if HAVE_SYS_TYPES_H
@@ -68,14 +66,14 @@ hiredis=default
 AC_SUBST([HIREDIS_LIBS])
 AC_ARG_WITH([redis], [  --with-redis            hiredis library],
 	    [hiredis=$withval])
-if test "$hiredis" != "no" -a "$pkgconfigpath" != "NONE"; then
+if test "$hiredis" != "no" -a "$PKG_CONFIG" != "NONE"; then
     AC_CHECK_LIB([hiredis],[redisCommandArgv],[HIREDIS_LIBS=-lhiredis])
     AC_MSG_CHECKING([for redis])
-    if $pkgconfigpath --cflags hiredis >/dev/null 2>&1 ; then
-	if $pkgconfigpath --atleast-version 0.10 hiredis; then
+    if $PKG_CONFIG --cflags hiredis >/dev/null 2>&1 ; then
+	if $PKG_CONFIG --atleast-version 0.10 hiredis; then
 	    AC_MSG_RESULT([yes])
-            CFLAGS="$CFLAGS `$pkgconfigpath --cflags hiredis`"
-            HIREDIS_LIBS="`$pkgconfigpath --libs hiredis`"
+            CFLAGS="$CFLAGS `$PKG_CONFIG --cflags hiredis`"
+            HIREDIS_LIBS="`$PKG_CONFIG --libs hiredis`"
 	    AC_DEFINE([HAVE_HIREDIS],[1],[Define to 1 if hiredis is enabled])
 	else
 	    AC_MSG_RESULT([no. Version 0.10 required])
@@ -99,13 +97,13 @@ dnl ------ memcached
 memcached=default
 AC_SUBST([MEMCACHED_LIBS])
 AC_ARG_WITH([memcached], [  --with-memcached        Memcached library], [memcached=$withval])
-if test "$memcached" != "no" -a "$pkgconfigpath" != "NONE"; then
+if test "$memcached" != "no" -a "$PKG_CONFIG" != "NONE"; then
     AC_MSG_CHECKING([for libmemcached])
-    if $pkgconfigpath --cflags libmemcached >/dev/null 2>&1 ; then
-	if $pkgconfigpath --atleast-version 0.40 libmemcached; then
+    if $PKG_CONFIG --cflags libmemcached >/dev/null 2>&1 ; then
+	if $PKG_CONFIG --atleast-version 0.40 libmemcached; then
 	    AC_MSG_RESULT([yes])
-            CFLAGS="$CFLAGS `$pkgconfigpath --cflags libmemcached`"
-            MEMCACHED_LIBS="`$pkgconfigpath --libs libmemcached`"
+            CFLAGS="$CFLAGS `$PKG_CONFIG --cflags libmemcached`"
+            MEMCACHED_LIBS="`$PKG_CONFIG --libs libmemcached`"
 	    AC_DEFINE([HAVE_LIBMEMCACHED],[1],[Define to 1 if memcached is enabled])
         else
 	    AC_MSG_RESULT([no. Version 0.40 required])
@@ -140,11 +138,11 @@ if test "$gnutls" != "no"; then
 	    fi
 	fi
     else
-	if test "$pkgconfigpath" != "NONE"; then
-	    if $pkgconfigpath --exists gnutls; then
-		SSL_CFLAGS=`$pkgconfigpath --cflags gnutls`
-		SSL_LIBS="`$pkgconfigpath --libs gnutls`"
-		gnutlsver=`$pkgconfigpath --modversion gnutls`
+	if test "$PKG_CONFIG" != "NONE"; then
+	    if $PKG_CONFIG --exists gnutls; then
+		SSL_CFLAGS=`$PKG_CONFIG --cflags gnutls`
+		SSL_LIBS="`$PKG_CONFIG --libs gnutls`"
+		gnutlsver=`$PKG_CONFIG --modversion gnutls`
 	    fi
 	fi
     fi
@@ -224,7 +222,7 @@ if test "$with_iconv" != "no"; then
     ])
 fi
 dnl ------ various functions
-AC_CHECK_FUNCS([getaddrinfo vsnprintf gettimeofday poll strerror_r localtime_r usleep fopen64 open_memstream malloc_info])
+AC_CHECK_FUNCS([getaddrinfo vsnprintf gettimeofday poll strerror_r localtime_r nanosleep fopen64 open_memstream malloc_info])
 if test "$ac_cv_func_getaddrinfo" = "no"; then
 	AC_MSG_ERROR([getaddrinfo required])
 fi
