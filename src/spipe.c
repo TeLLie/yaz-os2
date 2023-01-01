@@ -27,6 +27,10 @@
 #include <unistd.h>
 #endif
 
+#ifdef __OS2__
+#include <libcx/net.h>
+#endif
+
 #ifdef WIN32
 #include <winsock2.h>
 #define YAZ_INVALID_SOCKET INVALID_SOCKET
