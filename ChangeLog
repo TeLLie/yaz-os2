@@ -1,3 +1,260 @@
+commit 6b324c1a39634a39bcd52676cf0397bd375cb985
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Wed Dec 14 12:19:45 2022 +0100
+
+    Version 5.33.0; No Debian essie
+
+commit 326037b9f7c8fd1a73171836475f6c22a3b50374
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Wed Dec 14 11:17:18 2022 +0100
+
+    Update bazel for MARCXML parsing with SAX (#83)
+
+commit df753435cbdc9e0dba4ff1b40172c2a27699e676
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Fri Dec 2 18:59:11 2022 +0100
+
+    Add Visual Studio Code settings (#81)
+
+commit 78b070f549b47883f9803bb452ffefed8f4bc4b5
+Merge: 4ac35dab e1e9a2eb
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Wed Nov 30 16:59:40 2022 +0100
+
+    Merge pull request #79 from indexdata/yaz-marcdump-print-totals
+    
+    yaz-marcdump: option -r prints summary
+
+commit e1e9a2eb7cb42a8b9d0ae8f7c3af1027d4f7db8f
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Wed Nov 30 16:30:59 2022 +0100
+
+    yaz-marcdump: option -r prints summary
+
+commit a9bd4fb4f710675f09d28ee7d2e8ae02b8c60fa4
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Wed Nov 30 16:01:12 2022 +0100
+
+    yaz-mmarcdump refactor function out
+
+commit 4ac35dab2d10c52db4d4c45b5fe520c7edb05c84
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Mon Nov 28 19:29:31 2022 +0100
+
+    Move MARC test files to directory marc-files (#78)
+
+commit ae0c6dfc01d8cd413242cc7432ed5ad84174e684
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Tue Nov 22 13:54:44 2022 +0100
+
+    Fix unix socket check (#76)
+
+commit b57daa133f21b17fbafd67aa074703ed9eabc3d9
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Mon Nov 21 17:33:35 2022 +0100
+
+    SAX.h declares characters function (#75)
+    
+    Therefore, do not use that name here.
+
+commit 6e536930658f1e31fa3212940e1f2da6d82d33b2
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Mon Nov 21 17:19:42 2022 +0100
+
+    Do not set _POSIX_C_SOURCE in yconfig.h (#74)
+    
+    Do not set _POSIX_C_SOURCE in yconfig.h.
+    Update libstemmer with if-0 sections.
+    Workflow tests -std=c89 .
+
+commit bdc8a7a42c7d2ceedaceaf72e2ff5c2bc5174a2f
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Mon Nov 21 16:52:53 2022 +0100
+
+    Compiles with -std=c89 again (#73)
+
+commit 50edf70dff1ab45c3f79f54a7c95374c6abfb60f
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Mon Nov 21 12:04:54 2022 +0100
+
+    yaz-marcdump uses Libxml2's SAX parser (#72)
+
+commit f37a0b2f0d1ae78bef31d47c60154a1f5bcbf264
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Thu Nov 10 12:32:49 2022 +0100
+
+    Workflow indentation (#71)
+
+commit 3432af3f86894a1ee9623e17ea3fa4be6f3f2ecb
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Wed Nov 9 18:36:19 2022 +0100
+
+    Do not mention Debian build (#69)
+    
+    As debian/changelog is not present anymore.
+
+commit d3d7c1cb4d4f3680de88dd06236cef55bcc0706a
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Wed Nov 9 18:33:52 2022 +0100
+
+    Build YAZ workflow (#68)
+
+commit d53c07fac43899cf6c19f857ca655f23c87956b9
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Wed Nov 9 17:11:47 2022 +0100
+
+    .cproject gone
+
+commit 49736c22cd360484a94ad8113c8ae7d7881e0f6e
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Wed Nov 9 17:00:52 2022 +0100
+
+    Travis config gone
+
+commit 94e8f9aa55bef840c76fc17f8a8276dea318db86
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Wed Oct 12 15:43:16 2022 +0200
+
+    Add two sort spec examples
+
+commit 215cead04a84912cb923408990888b0a39cca85a
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Sat Oct 8 21:05:04 2022 +0200
+
+    Update m4
+
+commit 890d8249636da6170df81f514f6ea58a416d4657
+Merge: 5bc1f62b 20f4dc74
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Wed Aug 24 16:21:32 2022 +0200
+
+    Merge pull request #66 from hughmcmaster/pkgconfig
+    
+    Fix cross-compiling with pkg-config
+
+commit 5bc1f62b941b27cfc59e0de61d5d63a3e6fa470e
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Thu Aug 18 10:30:16 2022 +0200
+
+    Only Ubuntu LTS
+
+commit ba6af1ac48998b19bb54a5b7209d6d987af8ec0e
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Thu Aug 4 18:59:35 2022 +0200
+
+    Mention rpnCharset option
+
+commit 20f4dc74e63aac1cfc787e459d3c76757918ea86
+Author: Hugh McMaster <hugh.mcmaster@outlook.com>
+Date:   Sat Jun 11 18:57:03 2022 +1000
+
+    configure.ac: Replace pkgconfigpath with standard PKG_CONFIG variable name
+    
+    Using PKG_CONFIG as the variable name makes it easy for users to override
+    the location of pkg-config.
+
+commit d8c67872ed357d22dbe078766c4b2f4066a31019
+Author: Hugh McMaster <hugh.mcmaster@outlook.com>
+Date:   Sat Jun 11 18:56:30 2022 +1000
+
+    configure.ac: Use AC_PATH_TOOL to allow cross-compiling with pkg-config
+
+commit 2e7f552433087be4bacb4935386e69fe83ef8de6
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Mon May 30 21:28:40 2022 +0200
+
+    Do not use PKG_PROG_PKG_CONFIG which may not be present
+
+commit 4e90302cc3a24ada8c72fc19dd440ad5d7c71b29
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Mon May 30 19:21:18 2022 +0000
+
+    Add trailing backslash to AC_CHECK_HEADERS arg
+    
+    Required for Autoconf 2.69, but not for Autoconf 2.71.
+
+commit f8ac64f238bf172556d99dc1d8e14cdaf4bc2442
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Mon May 30 17:19:12 2022 +0200
+
+    Upgrade m4 (quoting fixes)
+
+commit 5b74c1201a49fc74d7b256500f84488790441dba
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Mon May 30 16:08:11 2022 +0200
+
+    configure.ac: quote one more
+
+commit 776f0747a68941ca62145087012f6d2439a9458a
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Mon May 30 13:13:13 2022 +0200
+
+    Version 5.32.0, remove centos
+
+commit 787cc265a2d2173bbdce314b272eb4ee954ec1e2
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Mon May 30 13:02:57 2022 +0200
+
+    Include Ubuntu 22.04 LTS / jammy
+
+commit 46453d3e4a00c7cd4e74f6f9e32393aa21391705
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Mon May 30 12:59:16 2022 +0200
+
+    Upgrade configure ac (#65)
+    
+    Quoting, use updated acx_pthread.m4. Require autoconf 2.69.
+
+commit 7a58b915bff203488ecce98e00c41e15c35a60b7
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Fri May 20 09:45:07 2022 +0200
+
+    2022
+
+commit 3820a3b78c711360b0881d7d65d5d9b75698175b
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Fri May 20 09:32:23 2022 +0200
+
+    Report problems to info@indexdata.com
+
+commit 12315025d5cb8f91aa297922fc97913b78d558b1
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Fri May 20 09:31:39 2022 +0200
+
+    Report problems to info@indexdata.com
+
+commit a2e855116d39eaee359ee19730bc81c2575e3390
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Wed May 18 20:19:05 2022 +0200
+
+    backtrace: allow gdb to operate on this process
+
+commit fd6781bd3e931d72d72289dce8ec8fabe223a398
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Wed May 18 20:16:59 2022 +0200
+
+    backtrace: hard exit if backtrace hangs
+
+commit a05df56f3c60ba00557dcbf33c413e9587acf0ad
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Tue Apr 5 20:45:22 2022 +0200
+
+    For marcxml input, report error if fopen fails
+
+commit 4407105b6220dbeeca718b5efa6402e168f81df0
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Tue Apr 5 16:38:28 2022 +0200
+
+    Include limits.h for LONG_MAX
+
+commit 0c092d7bbb92e386336f1d9d3a3647495993c61e
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Tue Apr 5 16:11:17 2022 +0200
+
+    yaz-marcdump: limit, offset options
+    
+    Limit(-L), offset(-O) allows records in range to be processed.
+
 commit c3cea881e3e7e80b069ddd1429994e58841acb14
 Author: Adam Dickmeiss <adam@indexdata.dk>
 Date:   Sun Dec 19 11:47:37 2021 +0100

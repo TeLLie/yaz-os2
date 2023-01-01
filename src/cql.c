@@ -1,4 +1,4 @@
-/* A Bison parser, made by GNU Bison 3.7.6.  */
+/* A Bison parser, made by GNU Bison 3.8.2.  */
 
 /* Bison implementation for Yacc-like parsers in C
 
@@ -46,10 +46,10 @@
    USER NAME SPACE" below.  */
 
 /* Identify Bison output, and Bison version.  */
-#define YYBISON 30706
+#define YYBISON 30802
 
 /* Bison version string.  */
-#define YYBISON_VERSION "3.7.6"
+#define YYBISON_VERSION "3.8.2"
 
 /* Skeleton name.  */
 #define YYSKELETON_NAME "yacc.c"
@@ -208,7 +208,9 @@ typedef int YYSTYPE;
 
 
 
+
 int cql_parse (void *parm);
+
 
 
 /* Symbol kind.  */
@@ -414,12 +416,18 @@ typedef int yy_state_fast_t;
 # define YY_USE(E) /* empty */
 #endif
 
-#if defined __GNUC__ && ! defined __ICC && 407 <= __GNUC__ * 100 + __GNUC_MINOR__
 /* Suppress an incorrect diagnostic about yylval being uninitialized.  */
-# define YY_IGNORE_MAYBE_UNINITIALIZED_BEGIN                            \
+#if defined __GNUC__ && ! defined __ICC && 406 <= __GNUC__ * 100 + __GNUC_MINOR__
+# if __GNUC__ * 100 + __GNUC_MINOR__ < 407
+#  define YY_IGNORE_MAYBE_UNINITIALIZED_BEGIN                           \
+    _Pragma ("GCC diagnostic push")                                     \
+    _Pragma ("GCC diagnostic ignored \"-Wuninitialized\"")
+# else
+#  define YY_IGNORE_MAYBE_UNINITIALIZED_BEGIN                           \
     _Pragma ("GCC diagnostic push")                                     \
     _Pragma ("GCC diagnostic ignored \"-Wuninitialized\"")              \
     _Pragma ("GCC diagnostic ignored \"-Wmaybe-uninitialized\"")
+# endif
 # define YY_IGNORE_MAYBE_UNINITIALIZED_END      \
     _Pragma ("GCC diagnostic pop")
 #else
@@ -634,7 +642,7 @@ static const yytype_int8 yytranslate[] =
 };
 
 #if YYDEBUG
-  /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
+/* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
        0,    69,    69,    69,    86,    87,    91,    95,   100,   105,
@@ -673,16 +681,6 @@ yysymbol_name (yysymbol_kind_t yysymbol)
 }
 #endif
 
-#ifdef YYPRINT
-/* YYTOKNUM[NUM] -- (External) token number corresponding to the
-   (internal) symbol number NUM (which must be that of a token).  */
-static const yytype_int16 yytoknum[] =
-{
-       0,   256,   257,   258,   259,   260,   261,   262,   263,   264,
-     265,   266,   267,   268,    62,    61,    40,    41,    47,    60
-};
-#endif
-
 #define YYPACT_NINF (-34)
 
 #define yypact_value_is_default(Yyn) \
@@ -693,8 +691,8 @@ static const yytype_int16 yytoknum[] =
 #define yytable_value_is_error(Yyn) \
   0
 
-  /* YYPACT[STATE-NUM] -- Index in YYTABLE of the portion describing
-     STATE-NUM.  */
+/* YYPACT[STATE-NUM] -- Index in YYTABLE of the portion describing
+   STATE-NUM.  */
 static const yytype_int8 yypact[] =
 {
      -34,     4,    51,   -34,   -34,   -34,   -34,   -34,   -34,   -34,
@@ -706,9 +704,9 @@ static const yytype_int8 yypact[] =
       84,   -34,   -34,   -34,    79,   -34
 };
 
-  /* YYDEFACT[STATE-NUM] -- Default reduction number in state STATE-NUM.
-     Performed when YYTABLE does not specify something else to do.  Zero
-     means the default is an error.  */
+/* YYDEFACT[STATE-NUM] -- Default reduction number in state STATE-NUM.
+   Performed when YYTABLE does not specify something else to do.  Zero
+   means the default is an error.  */
 static const yytype_int8 yydefact[] =
 {
        2,     0,     0,     1,    44,    43,    45,    46,    47,    48,
@@ -720,7 +718,7 @@ static const yytype_int8 yydefact[] =
       30,    18,    23,    13,     0,    31
 };
 
-  /* YYPGOTO[NTERM-NUM].  */
+/* YYPGOTO[NTERM-NUM].  */
 static const yytype_int8 yypgoto[] =
 {
      -34,   -34,   -34,   -34,   -34,   -16,   -34,   -19,   -34,   -34,
@@ -728,7 +726,7 @@ static const yytype_int8 yypgoto[] =
      -18,   -11
 };
 
-  /* YYDEFGOTO[NTERM-NUM].  */
+/* YYDEFGOTO[NTERM-NUM].  */
 static const yytype_int8 yydefgoto[] =
 {
        0,     1,     2,    22,    44,    45,    13,    14,    59,    42,
@@ -736,9 +734,9 @@ static const yytype_int8 yydefgoto[] =
       17,    18
 };
 
-  /* YYTABLE[YYPACT[STATE-NUM]] -- What to do in state STATE-NUM.  If
-     positive, shift that token.  If negative, reduce the rule whose
-     number is the opposite.  If YYTABLE_NINF, syntax error.  */
+/* YYTABLE[YYPACT[STATE-NUM]] -- What to do in state STATE-NUM.  If
+   positive, shift that token.  If negative, reduce the rule whose
+   number is the opposite.  If YYTABLE_NINF, syntax error.  */
 static const yytype_int8 yytable[] =
 {
       19,    43,    41,    46,     3,   -42,    39,    -9,    23,    49,
@@ -769,8 +767,8 @@ static const yytype_int8 yycheck[] =
       -1,    -1,    -1,    19
 };
 
-  /* YYSTOS[STATE-NUM] -- The (internal number of the) accessing
-     symbol of state STATE-NUM.  */
+/* YYSTOS[STATE-NUM] -- The symbol kind of the accessing symbol of
+   state STATE-NUM.  */
 static const yytype_int8 yystos[] =
 {
        0,    21,    22,     0,     3,     4,     5,     6,     7,     8,
@@ -782,7 +780,7 @@ static const yytype_int8 yystos[] =
       41,    32,    32,    27,    39,    41
 };
 
-  /* YYR1[YYN] -- Symbol number of symbol that rule YYN derives.  */
+/* YYR1[RULE-NUM] -- Symbol kind of the left-hand side of rule RULE-NUM.  */
 static const yytype_int8 yyr1[] =
 {
        0,    20,    22,    21,    23,    23,    24,    24,    25,    26,
@@ -792,7 +790,7 @@ static const yytype_int8 yyr1[] =
       39,    39,    40,    41,    41,    41,    41,    41,    41,    41
 };
 
-  /* YYR2[YYN] -- Number of symbols on the right hand side of rule YYN.  */
+/* YYR2[RULE-NUM] -- Number of symbols on the right-hand side of rule RULE-NUM.  */
 static const yytype_int8 yyr2[] =
 {
        0,     2,     0,     3,     0,     2,     2,     1,     2,     1,
@@ -811,6 +809,7 @@ enum { YYENOMEM = -2 };
 #define YYACCEPT        goto yyacceptlab
 #define YYABORT         goto yyabortlab
 #define YYERROR         goto yyerrorlab
+#define YYNOMEM         goto yyexhaustedlab
 
 
 #define YYRECOVERING()  (!!yyerrstatus)
@@ -851,10 +850,7 @@ do {                                            \
     YYFPRINTF Args;                             \
 } while (0)
 
-/* This macro is provided for backward compatibility. */
-# ifndef YY_LOCATION_PRINT
-#  define YY_LOCATION_PRINT(File, Loc) ((void) 0)
-# endif
+
 
 
 # define YY_SYMBOL_PRINT(Title, Kind, Value, Location)                    \
@@ -882,10 +878,6 @@ yy_symbol_value_print (FILE *yyo,
   YY_USE (parm);
   if (!yyvaluep)
     return;
-# ifdef YYPRINT
-  if (yykind < YYNTOKENS)
-    YYPRINT (yyo, yytoknum[yykind], *yyvaluep);
-# endif
   YY_IGNORE_MAYBE_UNINITIALIZED_BEGIN
   YY_USE (yykind);
   YY_IGNORE_MAYBE_UNINITIALIZED_END
@@ -1077,6 +1069,7 @@ YYSTYPE yylval YY_INITIAL_VALUE (= yyval_default);
   YYDPRINTF ((stderr, "Starting parse\n"));
 
   yychar = YYEMPTY; /* Cause a token to be read.  */
+
   goto yysetstate;
 
 
@@ -1102,7 +1095,7 @@ yysetstate:
 
   if (yyss + yystacksize - 1 <= yyssp)
 #if !defined yyoverflow && !defined YYSTACK_RELOCATE
-    goto yyexhaustedlab;
+    YYNOMEM;
 #else
     {
       /* Get the current used size of the three stacks, in elements.  */
@@ -1130,7 +1123,7 @@ yysetstate:
 # else /* defined YYSTACK_RELOCATE */
       /* Extend the stack our own way.  */
       if (YYMAXDEPTH <= yystacksize)
-        goto yyexhaustedlab;
+        YYNOMEM;
       yystacksize *= 2;
       if (YYMAXDEPTH < yystacksize)
         yystacksize = YYMAXDEPTH;
@@ -1141,7 +1134,7 @@ yysetstate:
           YY_CAST (union yyalloc *,
                    YYSTACK_ALLOC (YY_CAST (YYSIZE_T, YYSTACK_BYTES (yystacksize))));
         if (! yyptr)
-          goto yyexhaustedlab;
+          YYNOMEM;
         YYSTACK_RELOCATE (yyss_alloc, yyss);
         YYSTACK_RELOCATE (yyvs_alloc, yyvs);
 #  undef YYSTACK_RELOCATE
@@ -1162,6 +1155,7 @@ yysetstate:
         YYABORT;
     }
 #endif /* !defined yyoverflow && !defined YYSTACK_RELOCATE */
+
 
   if (yystate == YYFINAL)
     YYACCEPT;
@@ -1281,7 +1275,7 @@ yyreduce:
 			    "cql.serverChoice", "=", 0);
     ((CQL_parser) parm)->top = 0;
 }
-#line 1285 "cql.c"
+#line 1279 "cql.c"
     break;
 
   case 3: /* top: @1 cqlQuery1 sortby  */
@@ -1296,13 +1290,13 @@ yyreduce:
         ((CQL_parser) parm)->top = yyvsp[-1].cql;
     }
 }
-#line 1300 "cql.c"
+#line 1294 "cql.c"
     break;
 
   case 4: /* sortby: %empty  */
 #line 86 "cql.y"
   { yyval.cql = 0; }
-#line 1306 "cql.c"
+#line 1300 "cql.c"
     break;
 
   case 5: /* sortby: SORTBY sortSpec  */
@@ -1310,7 +1304,7 @@ yyreduce:
                   {
     yyval.cql = yyvsp[0].cql;
  }
-#line 1314 "cql.c"
+#line 1308 "cql.c"
     break;
 
   case 6: /* sortSpec: sortSpec singleSpec  */
@@ -1319,7 +1313,7 @@ yyreduce:
     yyval.cql = yyvsp[-1].cql;
     yyval.cql->u.sort.next = yyvsp[0].cql;
  }
-#line 1323 "cql.c"
+#line 1317 "cql.c"
     break;
 
   case 7: /* sortSpec: singleSpec  */
@@ -1327,7 +1321,7 @@ yyreduce:
 {
     yyval.cql = yyvsp[0].cql;
 }
-#line 1331 "cql.c"
+#line 1325 "cql.c"
     break;
 
   case 8: /* singleSpec: index modifiers  */
@@ -1335,7 +1329,7 @@ yyreduce:
                             {
     yyval.cql = cql_node_mk_sort(((CQL_parser) parm)->nmem, yyvsp[-1].buf, yyvsp[0].cql);
  }
-#line 1339 "cql.c"
+#line 1333 "cql.c"
     break;
 
   case 10: /* cqlQuery1: cqlQuery error  */
@@ -1344,7 +1338,7 @@ yyreduce:
     cql_node_destroy(yyvsp[-1].cql);
     yyval.cql = 0;
 }
-#line 1348 "cql.c"
+#line 1342 "cql.c"
     break;
 
   case 12: /* @2: %empty  */
@@ -1352,7 +1346,7 @@ yyreduce:
                                 {
     yyval.rel = yyvsp[-4].rel;
   }
-#line 1356 "cql.c"
+#line 1350 "cql.c"
     break;
 
   case 13: /* cqlQuery: '>' searchTerm '=' searchTerm @2 cqlQuery  */
@@ -1361,7 +1355,7 @@ yyreduce:
     yyval.cql = cql_apply_prefix(((CQL_parser) parm)->nmem,
 			      yyvsp[0].cql, yyvsp[-4].buf, yyvsp[-2].buf);
   }
-#line 1365 "cql.c"
+#line 1359 "cql.c"
     break;
 
   case 14: /* @3: %empty  */
@@ -1369,7 +1363,7 @@ yyreduce:
                  {
       yyval.rel = yyvsp[-2].rel;
   }
-#line 1373 "cql.c"
+#line 1367 "cql.c"
     break;
 
   case 15: /* cqlQuery: '>' searchTerm @3 cqlQuery  */
@@ -1378,7 +1372,7 @@ yyreduce:
     yyval.cql = cql_apply_prefix(((CQL_parser) parm)->nmem,
 			      yyvsp[0].cql, 0, yyvsp[-2].buf);
    }
-#line 1382 "cql.c"
+#line 1376 "cql.c"
     break;
 
   case 17: /* @4: %empty  */
@@ -1386,7 +1380,7 @@ yyreduce:
                                  {
       yyval.rel = yyvsp[-3].rel;
   }
-#line 1390 "cql.c"
+#line 1384 "cql.c"
     break;
 
   case 18: /* scopedClause: scopedClause boolean modifiers @4 searchClause  */
@@ -1401,7 +1395,7 @@ yyreduce:
 
       yyval.cql = cn;
   }
-#line 1405 "cql.c"
+#line 1399 "cql.c"
     break;
 
   case 19: /* @5: %empty  */
@@ -1410,7 +1404,7 @@ yyreduce:
       yyval.rel = yyvsp[-1].rel;
 
   }
-#line 1414 "cql.c"
+#line 1408 "cql.c"
     break;
 
   case 20: /* searchClause: '(' @5 cqlQuery ')'  */
@@ -1418,7 +1412,7 @@ yyreduce:
                  {
       yyval.cql = yyvsp[-1].cql;
   }
-#line 1422 "cql.c"
+#line 1416 "cql.c"
     break;
 
   case 21: /* searchClause: searchTerm extraTerms  */
@@ -1429,7 +1423,7 @@ yyreduce:
       st->u.st.term = nmem_strdup(((CQL_parser)parm)->nmem, yyvsp[-1].buf);
       yyval.cql = st;
   }
-#line 1433 "cql.c"
+#line 1427 "cql.c"
     break;
 
   case 22: /* @6: %empty  */
@@ -1438,7 +1432,7 @@ yyreduce:
       yyval.rel = cql_node_mk_sc(((CQL_parser) parm)->nmem, yyvsp[-2].buf, yyvsp[-1].buf, 0);
       yyval.rel->u.st.modifiers = yyvsp[0].cql;
   }
-#line 1442 "cql.c"
+#line 1436 "cql.c"
     break;
 
   case 23: /* searchClause: index relation modifiers @6 searchClause  */
@@ -1447,7 +1441,7 @@ yyreduce:
       yyval.cql = yyvsp[0].cql;
       cql_node_destroy(yyvsp[-1].rel);
   }
-#line 1451 "cql.c"
+#line 1445 "cql.c"
     break;
 
   case 24: /* extraTerms: SIMPLE_STRING extraTerms  */
@@ -1458,13 +1452,13 @@ yyreduce:
     st->u.st.extra_terms = yyvsp[0].cql;
     yyval.cql = st;
 }
-#line 1462 "cql.c"
+#line 1456 "cql.c"
     break;
 
   case 25: /* extraTerms: %empty  */
 #line 178 "cql.y"
 { yyval.cql = 0; }
-#line 1468 "cql.c"
+#line 1462 "cql.c"
     break;
 
   case 30: /* modifiers: modifiers '/' searchTerm  */
@@ -1476,7 +1470,7 @@ yyreduce:
     mod->u.st.modifiers = yyvsp[-2].cql;
     yyval.cql = mod;
 }
-#line 1480 "cql.c"
+#line 1474 "cql.c"
     break;
 
   case 31: /* modifiers: modifiers '/' searchTerm relation_symbol searchTerm  */
@@ -1488,7 +1482,7 @@ yyreduce:
     mod->u.st.modifiers = yyvsp[-4].cql;
     yyval.cql = mod;
 }
-#line 1492 "cql.c"
+#line 1486 "cql.c"
     break;
 
   case 32: /* modifiers: %empty  */
@@ -1496,11 +1490,11 @@ yyreduce:
 {
     yyval.cql = 0;
 }
-#line 1500 "cql.c"
+#line 1494 "cql.c"
     break;
 
 
-#line 1504 "cql.c"
+#line 1498 "cql.c"
 
       default: break;
     }
@@ -1582,6 +1576,7 @@ yyerrorlab:
      label yyerrorlab therefore never appears in user code.  */
   if (0)
     YYERROR;
+  ++yynerrs;
 
   /* Do not reclaim the symbols of the rule whose action triggered
      this YYERROR.  */
@@ -1642,7 +1637,7 @@ yyerrlab1:
 `-------------------------------------*/
 yyacceptlab:
   yyresult = 0;
-  goto yyreturn;
+  goto yyreturnlab;
 
 
 /*-----------------------------------.
@@ -1650,24 +1645,22 @@ yyacceptlab:
 `-----------------------------------*/
 yyabortlab:
   yyresult = 1;
-  goto yyreturn;
+  goto yyreturnlab;
 
 
-#if !defined yyoverflow
-/*-------------------------------------------------.
-| yyexhaustedlab -- memory exhaustion comes here.  |
-`-------------------------------------------------*/
+/*-----------------------------------------------------------.
+| yyexhaustedlab -- YYNOMEM (memory exhaustion) comes here.  |
+`-----------------------------------------------------------*/
 yyexhaustedlab:
   yyerror (parm, YY_("memory exhausted"));
   yyresult = 2;
-  goto yyreturn;
-#endif
+  goto yyreturnlab;
 
 
-/*-------------------------------------------------------.
-| yyreturn -- parsing is finished, clean up and return.  |
-`-------------------------------------------------------*/
-yyreturn:
+/*----------------------------------------------------------.
+| yyreturnlab -- parsing is finished, clean up and return.  |
+`----------------------------------------------------------*/
+yyreturnlab:
   if (yychar != YYEMPTY)
     {
       /* Make sure we have latest lookahead translation.  See comments at

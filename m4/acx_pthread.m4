@@ -46,6 +46,8 @@
 #   repository. We are also grateful for the helpful feedback of
 #   numerous users.
 #
+# MODIFIED 2022  by adam@indexdata.dk.
+#
 # LAST MODIFICATION
 #
 #   2006-05-29
@@ -87,7 +89,7 @@
 AC_DEFUN([ACX_PTHREAD], [
 AC_REQUIRE([AC_CANONICAL_HOST])
 AC_LANG_SAVE
-AC_LANG_C
+AC_LANG([C])
 acx_pthread_ok=no
 
 # We used to check for pthread.h first, but this fails if pthread.h
@@ -103,8 +105,8 @@ if test x"$PTHREAD_LIBS$PTHREAD_CFLAGS" != x; then
         save_LIBS="$LIBS"
         LIBS="$PTHREAD_LIBS $LIBS"
         AC_MSG_CHECKING([for pthread_join in LIBS=$PTHREAD_LIBS with CFLAGS=$PTHREAD_CFLAGS])
-        AC_TRY_LINK_FUNC(pthread_join, acx_pthread_ok=yes)
-        AC_MSG_RESULT($acx_pthread_ok)
+        AC_TRY_LINK_FUNC([pthread_join],[acx_pthread_ok=yes])
+        AC_MSG_RESULT([$acx_pthread_ok])
         if test x"$acx_pthread_ok" = xno; then
                 PTHREAD_LIBS=""
                 PTHREAD_CFLAGS=""
@@ -174,7 +176,7 @@ for flag in $acx_pthread_flags; do
                 ;;
 
 		pthread-config)
-		AC_CHECK_PROG(acx_pthread_config, pthread-config, yes, no)
+		AC_CHECK_PROG([acx_pthread_config], [pthread-config], [yes], [no])
 		if test x"$acx_pthread_config" = xno; then continue; fi
 		PTHREAD_CFLAGS="`pthread-config --cflags`"
 		PTHREAD_LIBS="`pthread-config --ldflags` `pthread-config --libs`"
@@ -200,16 +202,16 @@ for flag in $acx_pthread_flags; do
         # pthread_cleanup_push because it is one of the few pthread
         # functions on Solaris that doesn't have a non-functional libc stub.
         # We try pthread_create on general principles.
-        AC_TRY_LINK([#include <pthread.h>],
-                    [pthread_t th; pthread_join(th, 0);
-                     pthread_attr_init(0); pthread_cleanup_push(0, 0);
-                     pthread_create(0,0,0,0); pthread_cleanup_pop(0); ],
+        AC_LINK_IFELSE([AC_LANG_PROGRAM([[#include <pthread.h>]], [[
+                    pthread_t th; pthread_join(th, 0);
+                    pthread_attr_init(0); pthread_cleanup_push(0, 0);
+                    pthread_create(0,0,0,0); pthread_cleanup_pop(0); ]])],
                     [acx_pthread_ok=yes])
 
         LIBS="$save_LIBS"
         CFLAGS="$save_CFLAGS"
 
-        AC_MSG_RESULT($acx_pthread_ok)
+        AC_MSG_RESULT([$acx_pthread_ok])
         if test "x$acx_pthread_ok" = xyes; then
                 break;
         fi
@@ -230,10 +232,11 @@ if test "x$acx_pthread_ok" = xyes; then
 	AC_MSG_CHECKING([for joinable pthread attribute])
 	attr_name=unknown
 	for attr in PTHREAD_CREATE_JOINABLE PTHREAD_CREATE_UNDETACHED; do
-	    AC_TRY_LINK([#include <pthread.h>], [int attr=$attr; return attr;],
+	    AC_LINK_IFELSE([AC_LANG_PROGRAM([[#include <pthread.h>]],
+	    [[int attr=$attr; return attr;]])],
                         [attr_name=$attr; break])
 	done
-        AC_MSG_RESULT($attr_name)
+        AC_MSG_RESULT([$attr_name])
         if test "$attr_name" != PTHREAD_CREATE_JOINABLE; then
             AC_DEFINE_UNQUOTED(PTHREAD_CREATE_JOINABLE, $attr_name,
                                [Define to necessary symbol if this constant
@@ -256,7 +259,7 @@ if test "x$acx_pthread_ok" = xyes; then
 
         # More AIX lossage: must compile with xlc_r or cc_r
 	if test x"$GCC" != xyes; then
-          AC_CHECK_PROGS(PTHREAD_CC, xlc_r cc_r, ${CC})
+          AC_CHECK_PROGS([PTHREAD_CC], [xlc_r cc_r], [${CC}])
         else
           PTHREAD_CC=$CC
 	fi
@@ -270,7 +273,7 @@ AC_SUBST(PTHREAD_CC)
 
 # Finally, execute ACTION-IF-FOUND/ACTION-IF-NOT-FOUND:
 if test x"$acx_pthread_ok" = xyes; then
-        ifelse([$1],,AC_DEFINE(HAVE_PTHREAD,1,[Define if you have POSIX threads libraries and header files.]),[$1])
+        ifelse([$1],,AC_DEFINE([HAVE_PTHREAD], [1], [Define if you have POSIX threads libraries and header files.]),[$1])
         :
 else
         acx_pthread_ok=no

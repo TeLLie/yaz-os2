@@ -2,12 +2,12 @@
 .\"     Title: yaz-marcdump
 .\"    Author: Index Data
 .\" Generator: DocBook XSL Stylesheets vsnapshot <http://docbook.sf.net/>
-.\"      Date: 12/19/2021
+.\"      Date: 12/14/2022
 .\"    Manual: Commands
-.\"    Source: YAZ 5.31.1
+.\"    Source: YAZ 5.33.0
 .\"  Language: English
 .\"
-.TH "YAZ\-MARCDUMP" "1" "12/19/2021" "YAZ 5.31.1" "Commands"
+.TH "YAZ\-MARCDUMP" "1" "12/14/2022" "YAZ 5.33.0" "Commands"
 .\" -----------------------------------------------------------------
 .\" * Define some portability stuff
 .\" -----------------------------------------------------------------
@@ -31,7 +31,7 @@
 yaz-marcdump \- MARC record dump utility
 .SH "SYNOPSIS"
 .HP \w'\fByaz\-marcdump\fR\ 'u
-\fByaz\-marcdump\fR [\fB\-i\ \fR\fB\fIformat\fR\fR] [\fB\-o\ \fR\fB\fIformat\fR\fR] [\fB\-f\ \fR\fB\fIfrom\fR\fR] [\fB\-t\ \fR\fB\fIto\fR\fR] [\fB\-l\ \fR\fB\fIspec\fR\fR] [\fB\-c\ \fR\fB\fIcfile\fR\fR] [\fB\-s\ \fR\fB\fIprefix\fR\fR] [\fB\-C\ \fR\fB\fIsize\fR\fR] [\fB\-n\fR] [\fB\-p\fR] [\fB\-v\fR] [\fB\-V\fR] [file...]
+\fByaz\-marcdump\fR [\fB\-i\ \fR\fB\fIformat\fR\fR] [\fB\-o\ \fR\fB\fIformat\fR\fR] [\fB\-f\ \fR\fB\fIfrom\fR\fR] [\fB\-t\ \fR\fB\fIto\fR\fR] [\fB\-l\ \fR\fB\fIspec\fR\fR] [\fB\-c\ \fR\fB\fIcfile\fR\fR] [\fB\-s\ \fR\fB\fIprefix\fR\fR] [\fB\-C\ \fR\fB\fIsize\fR\fR] [\fB\-O\ \fR\fB\fIoffset\fR\fR] [\fB\-L\ \fR\fB\fIlimit\fR\fR] [\fB\-n\fR] [\fB\-p\fR] [\fB\-r\fR] [\fB\-v\fR] [\fB\-V\fR] [file...]
 .SH "DESCRIPTION"
 .PP
 \fByaz\-marcdump\fR
@@ -132,6 +132,16 @@ Specifies chunk size; to be used conjunction with option
 \-s\&.
 .RE
 .PP
+\-O \fIoffset\fR
+.RS 4
+Integer offset for at what position records whould be written\&. 0=first record, 1=second, \&.\&. With \-L option, this allows a specific range of records to be processed\&.
+.RE
+.PP
+\-L \fIlimit\fR
+.RS 4
+Integer limit for how many records should at most be written\&. With \-O option, this allows a specific range of records to be processed\&.
+.RE
+.PP
 \-p
 .RS 4
 Makes yaz\-marcdump print record number and input file offset of each record read\&.
@@ -140,6 +150,11 @@ Makes yaz\-marcdump print record number and input file offset of each record rea
 \-n
 .RS 4
 MARC output is omitted so that MARC input is only checked\&.
+.RE
+.PP
+\-r
+.RS 4
+Writes to stderr a summary about number of records read by yaz\-marcdump\&.
 .RE
 .PP
 \-v
