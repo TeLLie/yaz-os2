@@ -4,7 +4,7 @@
 # Parameters
 
 DEBUG=0   # 0 for release, 1 for debug
-BARCH = 32 # 32=win32/x86 or 64=x64
+BARCH = 64 # 32=win32/x86 or 64=x64
 
 # TCL
 TCL=tclsh
@@ -18,8 +18,8 @@ ICONV_DIR = c:\iconv-1.9.2.win$(BARCH)
 # icu charcter conversion utility
 # get icu libraries from http://www.icu-project.org
 HAVE_ICU=1
-ICU_VER=68
-ICU_BASE = c:\icu4c-$(ICU_VER)_2-Win$(BARCH)-MSVC2019
+ICU_VER=77
+ICU_BASE = c:\icu4c-$(ICU_VER)_1-Win$(BARCH)-MSVC2022
 !if $(BARCH) == 32
 ICU_LIB = $(ICU_BASE)\lib
 ICU_BIN = $(ICU_BASE)\bin
@@ -59,13 +59,16 @@ YAZ4J_DIR="..\..\yaz4j"
 YAZPATH=$(MAKEDIR)\..
 
 
-dist: yaz.nsi version.nsi distclean
-	nmake DEBUG=0 all
-	nmake nsis
+dist32: yaz.nsi version.nsi distclean
+	nmake make32
+	nmake nsis32
 
 dist64: yaz.nsi version.nsi distclean
 	nmake make64 yaz4j
 	nmake nsis64
+
+make32:
+	nmake DEBUG=0 BARCH=32 all
 
 make64:
 	nmake DEBUG=0 BARCH=64 all
@@ -74,7 +77,7 @@ distclean:
 	nmake DEBUG=1 clean
 	nmake DEBUG=0 clean
 
-nsis: version.nsi
+nsis32: version.nsi
 	$(NSIS) /DVSARCH=x86 yaz.nsi
 
 nsis64: version.nsi
@@ -280,9 +283,10 @@ RELEASE_C_OPTIONS=  \
   /D "NDEBUG"        \
   /MD /O2
 
-MVN_ARGS=-Dyaz.path="$(YAZPATH)" -Dyaz.include="$(YAZPATH)\src"
+MVN_ARGS=-Dyaz.path="$(YAZPATH)" -Dyaz.cflags="-I$(YAZPATH)\src"
 # without >log below, mvn install does NOT work
 yaz4j: $(JAVADIR)
+	copy $(BINDIR)\*.dll $(YAZ4J_DIR)
 	cd $(YAZ4J_DIR)
 	cmd /C mvn $(MVN_ARGS) clean package
 	copy /Y target\native\yaz4j*.dll "$(MAKEDIR)\..\bin"

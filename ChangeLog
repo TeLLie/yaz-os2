@@ -1,3 +1,568 @@
+commit f639d9819ee2df70ee59b093e7f1c67f8b0a5662
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Wed May 21 16:15:11 2025 +0200
+
+    Version 5.35.1
+
+commit ed6fba5c710c0275355ce7854cdcdb9cbfecf37f
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Wed May 21 16:12:28 2025 +0200
+
+    Patch level update
+
+commit 2e0da50de58f562a27a19d2999f61a1c962f9ffa
+Merge: 3d7139b4 6fb02c73
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Wed May 21 16:01:52 2025 +0200
+
+    Merge pull request #161 from indexdata/fix-daemon-keepalive-waitpid-eintr
+    
+    daemon keepalive: fix waitpid EINTR handling
+
+commit 6fb02c73ab7287b28058052b4aa9d86710ee72c4
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Wed May 21 15:57:04 2025 +0200
+
+    daemon keepalive: fix waitpid EINTR handling
+
+commit 3d7139b4f4a876629bec5c219c2d69b426b4e924
+Merge: dfe7c164 03e931f0
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Mon May 12 11:03:34 2025 +0200
+
+    Merge pull request #160 from indexdata/win-nmake-icu-upgrade-64-bit-default
+    
+    Windows nmake: ICU 77.1, 64-bit build is the default
+
+commit 03e931f017e22ae0dd973ec0f786aa6974ea3001
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Mon May 12 10:29:20 2025 +0200
+
+    Windows nmake: ICU 77.1, 64-bit build is the default
+
+commit dfe7c164dc95b3d4bde9aaf121eedfdc115dc339
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Sat May 10 18:54:22 2025 +0200
+
+    Fix quoting in common
+
+commit 60ce2615c85a66e00de515d47bf5a4b45c4d1c42
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Sat May 10 18:52:24 2025 +0200
+
+    Update a couple of ICU project links
+
+commit 6a42e80fe8b8ead54eb078988964e3fe4bb61788
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Fri May 9 09:35:50 2025 +0200
+
+    doc: Tested on Windows with VS 2019, 2022
+
+commit fa5d2a190ce586695390a030c653cef43045f47e
+Merge: a139ce8c 04bd3c78
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Tue May 6 13:20:38 2025 +0200
+
+    Merge pull request #159 from indexdata/release-5-35-0
+    
+    Update NEWS for 5.35.0
+
+commit 04bd3c7830226c6a319b8451c03b194a06da6e46
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Tue May 6 13:03:10 2025 +0200
+
+    Update NEWS for 5.35.0
+
+commit a139ce8c1b3ffd745dc52684555f08c4a1fdd2e4
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Tue May 6 13:00:52 2025 +0200
+
+    Expand c, h, y files
+
+commit 68a3b2dc3e40b1cf59db1179f61e5efee18e5918
+Merge: bc3da27a 8b4a2c50
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Tue May 6 10:15:13 2025 +0200
+
+    Merge pull request #158 from indexdata/yaz-encoding-skip-transfer-encoding-chunked
+    
+    Disable HTTP chunked when encoding HTTP messages
+
+commit 8b4a2c5052c376aa943c69cafc6d6bbebb9afdcb
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Tue May 6 10:01:43 2025 +0200
+
+    Disable HTTP chunked when encoding HTTP messages
+    
+    YAZ always sets Content-Length for encoded messages, and therefore
+    the Transfer-Encoding, should be skipped.
+
+commit bc3da27a7641ceb0e727105b94354375626f14d4
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Mon Apr 14 17:17:24 2025 +0200
+
+    Win upgrade to icu 76 2 (#157)
+    
+    yaz4j uses yaz.cflags now
+
+commit 667c895b7be8c09f8405a8b6770fc9063c237d61
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Mon Apr 14 14:55:50 2025 +0200
+
+    Update m4 for vcredist
+
+commit 73ca24f4277e43428147ad731a7cfbb05b69d44d
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Thu Apr 10 10:57:05 2025 +0200
+
+    Describe cql transform define functions (#155)
+
+commit 2a1c88bd437a2db9f4b9d403756132aafda0413e
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Thu Apr 10 10:20:32 2025 +0200
+
+    Bump current version (minor) (#154)
+    
+    Because of new cql_transform- functions.
+
+commit 577dcff7593c9b67bfd394bd344e4a5f728e48f4
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Thu Apr 10 10:07:44 2025 +0200
+
+    Cql transform define methods (#153)
+    
+    Add cql_transform_define_{FILE,fname}
+
+commit 2dcf904861e1e0c09c4192bdc4a488c9fbba1787
+Author: Jakub Skoczen <jakub@indexdata.com>
+Date:   Wed Mar 26 21:12:48 2025 +0100
+
+    Fix paths
+
+commit 106c0c1146883533ee2c6bee33063a7dd02af1e8
+Author: Jakub Skoczen <jakub@indexdata.com>
+Date:   Wed Mar 26 20:40:09 2025 +0100
+
+    Update macOS compilation docs
+
+commit 1d75a7dd62b559ef225558eb425797c92c313dce
+Merge: 2543988d b42e25e8
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Mon Feb 17 20:36:58 2025 +0100
+
+    Merge pull request #150 from indexdata/release-5-34-4
+    
+    Version 5.34.4
+
+commit b42e25e840666ea3422c3bd5cb566b07f78a99cd
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Mon Feb 17 19:59:11 2025 +0100
+
+    Version 5.34.4
+
+commit 2543988d47d3d039f6860274bf10dc44acef47ce
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Mon Feb 17 20:17:55 2025 +0100
+
+    Declare bufferSize when using ubrk_safeClone
+
+commit 833a0c91b6ed92331c0c56e7955a0757ae00178b
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Mon Feb 17 20:10:57 2025 +0100
+
+    Only use ubrk_clone for ICU v69 and later (#148)
+    
+    As it is not present in earlier versions (before 69).
+
+commit e571f22ad21f8cee659ce1588ecbff053935ad75
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Fri Feb 14 11:31:41 2025 +0100
+
+    marc: use type int like other index types here (#147)
+
+commit c6ff0d5d4605db287ce52e881c312ded2daca311
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Fri Feb 14 11:23:26 2025 +0100
+
+    Add cast for -1 size_t value (#146)
+
+commit 7392f8e6a009f5b4f85b25cd40867ccc3a703d39
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Fri Feb 14 11:19:23 2025 +0100
+
+    Mention sources that are built in test (#145)
+
+commit 1572e515823a5691821c31eaf8934fc1cc152fc1
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Thu Feb 13 18:03:59 2025 +0100
+
+    doc-clean does not remove local.ent
+
+commit 5ef36aa6264b8109974691e5e292ec358581a026
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Thu Feb 13 17:50:18 2025 +0100
+
+    Fix out-of-source build failing sometimes
+    
+    Add a few to BUILT_SOURCES.
+
+commit 823358682949f2c3be654945be403b666976fdc3
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Thu Feb 13 16:59:31 2025 +0100
+
+    marc: fix malformed XML #100
+
+commit 23ac2c874a4c362a7f527aee17ce2ed43cbfddfe
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Thu Feb 13 16:12:45 2025 +0100
+
+    Ignore test program (#143)
+
+commit ebc8ccab39cdbc73223d97a1679f20452f8e656e
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Fri Feb 7 12:16:38 2025 +0100
+
+    Avoid xmlSAXUserParseFile #140 (#141)
+    
+    yaz-marcdump: use same scheme for parsing MARCXML as MarcXchange.
+
+commit c3dfd2feaf5af7b28310c20d5f0a002b7b971660
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Wed Feb 5 20:25:25 2025 +0100
+
+    Fix warn_unused_result warnings produced by gcc/clang (#139)
+
+commit 48a1c72b36adfc60387aeda9dad88baff0ea2023
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Mon Jan 27 16:51:07 2025 +0100
+
+    Allow spaces for auth strings in yaz-client #101 (#138)
+    
+    Allow spaces for auth strings in yaz-client #101
+    
+    Document the yaz-client command auth.
+
+commit 1eb021946a9603de6c024aa3a5b937e84c5b2270
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Mon Jan 27 14:10:20 2025 +0100
+
+    Fix compilation with c17 c23 (#136)
+    
+    Most importanty set _POSIX_C_SOURCE to ensure certain
+    calls, fdopen, strerror_r are available.
+
+commit d175048f887f6a16b72217654a27b70ba6924282
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Mon Jan 27 14:08:33 2025 +0100
+
+    In yaz-marcdump initialize total local var always (#137)
+
+commit d872be1c11bfbe6ed266dbb8d7b7a29f215280f0
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Mon Jan 27 13:13:30 2025 +0100
+
+    Avoid urbk_safeClone; fixes #98 (#135)
+    
+    Use ubrk_clone instead.
+
+commit 5bfb9370f45de00203b5bc02f528fd96a832d17a
+Author: Mamoru TASAKA <mtasaka@fedoraproject.org>
+Date:   Mon Jan 27 19:25:29 2025 +0900
+
+    FIX: avoid bool for function name for C23 (#134)
+    
+    C23 now regards `bool` as keyword, so avoid using
+    `bool` for function name.
+    
+    Closes #133 .
+
+commit 7fde895620530f74fdf5d1c320df381106f4a6f1
+Merge: f270f658 de21cb94
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Tue Jan 7 18:13:09 2025 +0100
+
+    Merge pull request #132 from indexdata/release-5-34-3
+    
+    Version 5.34.3
+
+commit de21cb94d621830f12c9e84cecf28b67f9419b60
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Tue Jan 7 17:23:33 2025 +0100
+
+    Version 5.34.3
+
+commit f270f658584e7cc82840c8dc4681fcfb9cbf5409
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Thu Jan 2 10:55:49 2025 +0100
+
+    cql.y: tabs to spaces
+
+commit 8bc2df698af0ba8fe8307b5836c69ebbc82237ba
+Author: Jakub Skoczen <jakub@indexdata.com>
+Date:   Wed Dec 11 08:45:30 2024 +0100
+
+    Update m4, fixes #131
+
+commit f3e7f94aec5ef27a1ad8729ce52329377017c54e
+Author: Jakub Skoczen <jakub@indexdata.com>
+Date:   Thu Sep 19 16:53:55 2024 +0200
+
+    Version 5.34.2
+
+commit dde34347707d8ecdee48026ff0239a72f5f4e0b3
+Author: Jakub Skoczen <jakub@indexdata.com>
+Date:   Sun Sep 15 19:11:29 2024 +0200
+
+    Prerelease
+
+commit b89e9793db64b2d816be08b11c29f9ec5e5972bc
+Author: Jakub Skoczen <jakub@indexdata.com>
+Date:   Sun Sep 15 19:10:22 2024 +0200
+
+    Restore previous behavior without warning
+
+commit 419af4f6515481a56433d0d625ddcbce05b68cff
+Author: Jakub Skoczen <jakub@indexdata.com>
+Date:   Mon Sep 16 15:23:30 2024 +0200
+
+    Fix spec for centos7
+
+commit c358bdce6e5310fd4386510fcbfeacec24262fb3
+Author: Jakub Skoczen <jakub@indexdata.com>
+Date:   Sun Sep 15 09:07:32 2024 +0200
+
+    Add CentOS 9, remove unsupported
+
+commit 338bab5c52d99c3d4c2b7117096f278290e22843
+Author: Jakub Skoczen <jakub@indexdata.com>
+Date:   Sun Sep 15 09:06:07 2024 +0200
+
+    Disable LTO, no tcpwrapper on RHEL/CentOS 9
+
+commit 2a220eaa36814c3b3af0e2227c2b1ee1bdb5713b
+Author: Jakub Skoczen <jakub@indexdata.com>
+Date:   Sat Sep 14 23:20:27 2024 +0200
+
+    Add Ubuntu Noble, drop not supported
+
+commit b5da52a73e676bba3ad578aeaef9456079e678c2
+Author: Jakub Skoczen <jakub@indexdata.com>
+Date:   Sat Sep 14 23:14:38 2024 +0200
+
+    Disable LTO when building under Debian/Ubuntu
+
+commit 29fd8fdc0dd592c8e0eaf95501b33fd2da258d1c
+Author: Jakub Skoczen <jakub@indexdata.com>
+Date:   Sat Sep 14 16:52:52 2024 +0200
+
+    Rmove buster (EOL)
+
+commit 45c222674f375d43cae9d8478094983e0c0ef808
+Author: Jakub Skoczen <jakub@indexdata.com>
+Date:   Sat Sep 14 14:35:19 2024 +0200
+
+    Add libssl-dev to Build-Depends
+    
+    to workaround libmemcached pkg-config failure
+
+commit 5263d57757507c73c7fdb32f388bc2cd98ba857f
+Author: Jakub Skoczen <jakub@indexdata.com>
+Date:   Sat Jun 22 19:45:29 2024 +0200
+
+    Typos, long lines
+
+commit a3df68c525be5a2e178c6627d2f5fef88bf467b8
+Author: Jakub Skoczen <jakub@indexdata.com>
+Date:   Sat Jun 22 19:11:19 2024 +0200
+
+    Vscode XML editor settings
+
+commit c9dae5618a721b82d94e39bcce49dcacd7bba24b
+Author: Hugh McMaster <hugh.mcmaster@outlook.com>
+Date:   Fri Jun 21 22:42:50 2024 +1000
+
+    LICENSE: Update to match Index Data's online Revised BSD license (#115)
+    
+    * Extend copyright to 2024.
+     * Replace 'Regents' with 'Index Data'.
+     * Add whitespace for readability.
+     * Wrap lines as needed.
+
+commit 3c68842fb4c1ba02bec84ae315ab08f17e623485
+Author: Jakub Skoczen <jakub@indexdata.dk>
+Date:   Fri Jun 21 14:42:14 2024 +0200
+
+    More updates on macOS (#117)
+
+commit 5f1a2c7de92739243fc3ef5c498cef56add5b792
+Author: Jakub Skoczen <jakub@indexdata.dk>
+Date:   Fri Jun 21 14:16:09 2024 +0200
+
+    Update docs re compilation on macOS (#116)
+
+commit 3dc112d42667b857de0fc6c1e76525179db86a15
+Author: Jakub Skoczen <jakub@indexdata.com>
+Date:   Wed Jun 19 10:25:21 2024 +0200
+
+    Remove outdated distros: Debian Stretch and Ubuntu Trusty
+
+commit c354d371702a334ee6e6b9085d3f6cc039bb5348
+Author: Jakub Skoczen <jakub@indexdata.com>
+Date:   Tue Jun 18 09:43:41 2024 +0200
+
+    Version 5.34.1
+
+commit b684b2f033ed5a82b589b3be318cea609e1a0ef0
+Author: Mamoru TASAKA <mtasaka@fedoraproject.org>
+Date:   Tue Jun 18 16:38:11 2024 +0900
+
+    FIX: fix build error with libxml2 2.13.0 (#103)
+    
+    libxml2 2.13.0 changed which header file to define functions
+    and header inclusion. Due to this refactoring, some yaz source
+    files need additional inclusion of libxml2 header file,
+    especially for libxml/parser.h .
+    
+    Closes #102 .
+
+commit 4fa99381c813b401163d3837b9afa0734f270f56
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Mon Jun 17 21:51:18 2024 +0200
+
+    Update m4 for https://github.com/indexdata/m4/pull/3 (#112)
+
+commit 8d030790a97d700720b893f589b3236726e1c24c
+Author: Jakub Skoczen <jakub@indexdata.com>
+Date:   Sun Jun 9 16:42:29 2024 +0200
+
+    Remove pointer to bool conversion warnings
+    
+    conffile and print: static array pointer is never null
+    &e_ae->attributeSet: pointer variable address is never null
+
+commit bd97d95a35a0917d547f6323462a980234eb3370
+Author: Jakub Skoczen <jakub@indexdata.com>
+Date:   Sun Jun 9 16:30:01 2024 +0200
+
+    Add vscode settings
+
+commit 5dfb562354b1cf73cfbbc2bfd4a2b4e2c71daf46
+Merge: dc6defac 3c61afce
+Author: Jakub Skoczen <jakub@indexdata.dk>
+Date:   Wed Jun 5 21:48:04 2024 +0200
+
+    Merge pull request #105 from mtasaka/glibc_2_39_fix
+    
+    FIX: fix build error with libxml2 2.12
+
+commit dc6defac0898ccd98daeb83daf23572eced9f9d9
+Merge: 0def0ed7 5af9745f
+Author: David Crossley <dcrossleyau@users.noreply.github.com>
+Date:   Thu Feb 1 18:22:45 2024 +1100
+
+    Merge pull request #107 from indexdata/DEVOPS-2662-upgrade-actions
+    
+    DEVOPS-2662 update github actions
+
+commit 5af9745fe018f570cd8a68e4fd6110650bd2e3e7
+Author: David Crossley <david@indexdata.com>
+Date:   Thu Feb 1 18:17:58 2024 +1100
+
+    Use actions/checkout v4 DEVOPS-2662
+
+commit 3c61afce2c2517369c2bf1ba6846ff17f81c4b18
+Author: Mamoru TASAKA <mtasaka@fedoraproject.org>
+Date:   Tue Nov 21 23:47:18 2023 +0900
+
+    FIX: fix build error with glibc 2.39
+    
+    glibc 2.39 does some refactoring for header file inclusion
+    and some additional header inclusion is needed for yaz
+    source.
+    
+    Closes #104 .
+
+commit 0def0ed772fe6eda3b75404fca2c0f02d818892c
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Thu Jan 12 13:24:35 2023 +0100
+
+    NSIS: update for new marc-files directory (#96)
+
+commit cc628367af18b9ff550f8a37626e247a1ddf7f5b
+Merge: 49b983c0 dec0c8a0
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Thu Jan 12 12:19:08 2023 +0100
+
+    Merge pull request #95 from indexdata/release-5-34-0
+    
+    Version 5.34.0
+
+commit dec0c8a0b762132468cc8264c1b220eae1c67bd7
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Thu Jan 12 12:06:56 2023 +0100
+
+    Version 5.34.0
+
+commit 49b983c09c4bdd2d42f116cff2fecde406203101
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Mon Jan 9 16:48:40 2023 +0100
+
+    Solr response decoder fixes YAZ-955 (#94)
+    
+    WRBUf leaked and two places where XML text was not encoded properly.
+
+commit 244f96c7e79c81176627f18e45654a10efd06161
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Mon Jan 9 13:05:32 2023 +0100
+
+    Fix SEGV on parsing Solr responses YAZ-954 (#93)
+
+commit 0218c422bdc518cb857b849728cac5e64aad8229
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Sun Jan 8 19:52:16 2023 +0100
+
+    Happy new year (#92)
+
+commit 7b129110a98d07868de584e9bcfc4ccb10d38d5d
+Author: Guillaume <gjactat@users.noreply.github.com>
+Date:   Sun Jan 8 19:49:52 2023 +0100
+
+    Add method alias S_ISREG (#89)
+    
+    Inspired by a similar piece of code found in many other files.
+    Not sure if this is the right to proceed but the build succeeds now.
+    
+    Co-authored-by: g.jactat@archimed.fr <g.jactat@archimed.fr>
+
+commit 76b657a6fbfc7d71832216a9d9733332e8905357
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Tue Dec 27 14:18:17 2022 +0100
+
+    jq formatted output for yaz-marcdump #86 (#88)
+
+commit 68bbe3b634ca4ef85e4da4527a33bdf5f0c2e33e
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Tue Dec 27 13:28:18 2022 +0100
+
+    json_write_wrbuf_pretty same format as jq (#87)
+    
+    Also affects output of: yaz-json-parse -pp  <infile
+
+commit 584ed965d1d6e3fef659e5dbdde2a47af33dcd2e
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Wed Dec 14 13:58:16 2022 +0100
+
+    Add CentOS 7 and 8 again (#85)
+
+commit 51b8fa8247b1d31bda5a89f7638409d512774ff4
+Merge: 326037b9 6b324c1a
+Author: Adam Dickmeiss <adam@indexdata.dk>
+Date:   Wed Dec 14 13:25:51 2022 +0100
+
+    Merge pull request #84 from indexdata/release-5-33-0
+    
+    Version 5.33.0; No Debian Jessie
+
 commit 6b324c1a39634a39bcd52676cf0397bd375cb985
 Author: Adam Dickmeiss <adam@indexdata.dk>
 Date:   Wed Dec 14 12:19:45 2022 +0100

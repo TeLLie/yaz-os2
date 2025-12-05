@@ -28,6 +28,9 @@ InstallDir "$PROGRAMFILES64\$(^Name)"
 !else if "${VSVER}" == "16.0"
 ; Microsoft Visual C++ 2019 x64 Minimum Runtime - 14.28.29334
 !define VS_REDIST_KEY "SOFTWARE\Classes\Installer\Products\B5D7F3A8D2249D94487FD81C7B879276"
+!else if "${VSVER}" == "17.0"
+; Microsoft Visual C++ 2022 x64 Minimum Runtime - 14.42.34438
+!define VS_REDIST_KEY "SOFTWARE\Classes\Installer\Products\915F51E2ADF443844BEEE7CF7E8D4DEE"
 !else
 !error ${VSVER}
 !endif
@@ -45,6 +48,9 @@ InstallDir "$PROGRAMFILES\$(^Name)"
 !else if "${VSVER}" == "16.0"
 ; Microsoft Visual C++ 2019 x86 Minimum Runtime - 14.28.29334
 !define VS_REDIST_KEY "SOFTWARE\Classes\Installer\Products\218A10D01A28F1845864E8829E678FFD"
+!else if "${VSVER}" == "17.0"
+; Microsoft Visual C++ 2022 x86 Minimum Runtime - 14.42.34438
+!define VS_REDIST_KEY "SOFTWARE\Classes\Installer\Products\1154C0D51AC38FF44AAB0C1E59A7EBAE"
 !else
 !error ${VSVER}
 !endif

@@ -18,7 +18,7 @@ AC_DEFUN([AC_CHECK_ICU],
 	  AC_ARG_WITH(icu,[  --with-icu[=PREFIX]       use ICU libs in PREFIX], icudir=$withval)
 	  if test "$icudir" != "no"; then
 	      if test "$icudir" = "yes" -o "$icudir" = "default"; then
-		  AC_PATH_PROG([pkgconfigpath], [pkg-config], [NONE])
+		  AC_PATH_TOOL([pkgconfigpath], [pkg-config], [NONE])
 		  if test -x $pkgconfigpath; then
 		      AC_MSG_CHECKING([for icu-i18n via pkg-config])
 		      if $pkgconfigpath --exists icu-i18n; then
@@ -26,7 +26,7 @@ AC_DEFUN([AC_CHECK_ICU],
 			  ICU_VERSION=`$pkgconfigpath --modversion icu-i18n`
 			  ICU_CPPFLAGS=""
 			  ICU_CFLAGS=`$pkgconfigpath --cflags icu-i18n`
-			  ICU_LIBS=`$pkgconfigpath --libs icu-i18n`
+			  ICU_LIBS=`$pkgconfigpath --libs icu-i18n icu-uc`
 		      else
 			  AC_MSG_RESULT([not found])
 		      fi
