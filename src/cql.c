@@ -98,15 +98,15 @@
 
     /** Node in the LALR parse tree. */
     typedef struct {
-	/** Inhereted attribute: relation */
+        /** Inhereted attribute: relation */
         struct cql_node *rel;
-	/** Synthesized attribute: CQL node */
+        /** Synthesized attribute: CQL node */
         struct cql_node *cql;
-	/** string buffer with token */
+        /** string buffer with token */
         char *buf;
-	/** length of token */
+        /** length of token */
         size_t len;
-	/** size of buffer (len <= size) */
+        /** size of buffer (len <= size) */
         size_t size;
     } token;
 
@@ -1272,7 +1272,7 @@ yyreduce:
 #line 69 "cql.y"
      {
     yyval.rel = cql_node_mk_sc(((CQL_parser) parm)->nmem,
-			    "cql.serverChoice", "=", 0);
+                            "cql.serverChoice", "=", 0);
     ((CQL_parser) parm)->top = 0;
 }
 #line 1279 "cql.c"
@@ -1353,7 +1353,7 @@ yyreduce:
 #line 117 "cql.y"
              {
     yyval.cql = cql_apply_prefix(((CQL_parser) parm)->nmem,
-			      yyvsp[0].cql, yyvsp[-4].buf, yyvsp[-2].buf);
+                              yyvsp[0].cql, yyvsp[-4].buf, yyvsp[-2].buf);
   }
 #line 1359 "cql.c"
     break;
@@ -1370,7 +1370,7 @@ yyreduce:
 #line 123 "cql.y"
              {
     yyval.cql = cql_apply_prefix(((CQL_parser) parm)->nmem,
-			      yyvsp[0].cql, 0, yyvsp[-2].buf);
+                              yyvsp[0].cql, 0, yyvsp[-2].buf);
    }
 #line 1376 "cql.c"
     break;
@@ -1387,7 +1387,7 @@ yyreduce:
 #line 134 "cql.y"
                  {
       struct cql_node *cn = cql_node_mk_boolean(((CQL_parser) parm)->nmem,
-						yyvsp[-3].buf);
+                                                yyvsp[-3].buf);
 
       cn->u.boolean.modifiers = yyvsp[-2].cql;
       cn->u.boolean.left = yyvsp[-4].cql;
@@ -1448,7 +1448,7 @@ yyreduce:
 #line 171 "cql.y"
                          {
     struct cql_node *st = cql_node_mk_sc(((CQL_parser) parm)->nmem,
-					 /* index */ 0, /* rel */ 0, yyvsp[-1].buf);
+                                         /* index */ 0, /* rel */ 0, yyvsp[-1].buf);
     st->u.st.extra_terms = yyvsp[0].cql;
     yyval.cql = st;
 }
@@ -1465,7 +1465,7 @@ yyreduce:
 #line 188 "cql.y"
 {
     struct cql_node *mod = cql_node_mk_sc(((CQL_parser)parm)->nmem,
-					  yyvsp[0].buf, 0, 0);
+                                          yyvsp[0].buf, 0, 0);
 
     mod->u.st.modifiers = yyvsp[-2].cql;
     yyval.cql = mod;
@@ -1477,7 +1477,7 @@ yyreduce:
 #line 197 "cql.y"
 {
     struct cql_node *mod = cql_node_mk_sc(((CQL_parser)parm)->nmem,
-					  yyvsp[-2].buf, yyvsp[-1].buf, yyvsp[0].buf);
+                                          yyvsp[-2].buf, yyvsp[-1].buf, yyvsp[0].buf);
 
     mod->u.st.modifiers = yyvsp[-4].cql;
     yyval.cql = mod;
@@ -1706,7 +1706,7 @@ static void putb(YYSTYPE *lval, CQL_parser cp, int c)
     if (lval->len+1 >= lval->size)
     {
         char *nb = (char *)
-	    nmem_malloc(cp->nmem, (lval->size = lval->len * 2 + 20));
+            nmem_malloc(cp->nmem, (lval->size = lval->len * 2 + 20));
         memcpy(nb, lval->buf, lval->len);
         lval->buf = nb;
     }
@@ -1742,8 +1742,8 @@ int yylex(YYSTYPE *lval, void *vp)
     {
         int c1;
         putb(lval, cp, c);
-	if (c == '=')
-	{
+        if (c == '=')
+        {
             c1 = cp->getbyte(cp->client_data);
             if (c1 == '=')
             {
@@ -1752,7 +1752,7 @@ int yylex(YYSTYPE *lval, void *vp)
             }
             else
                 cp->ungetbyte(c1, cp->client_data);
-	}
+        }
         else if (c == '>')
         {
             c1 = cp->getbyte(cp->client_data);
@@ -1787,75 +1787,75 @@ int yylex(YYSTYPE *lval, void *vp)
         while ((c = cp->getbyte(cp->client_data)) != 0 && c != '"')
         {
             if (c == '\\')
-	    {
-		putb(lval, cp, c);
+            {
+                putb(lval, cp, c);
                 c = cp->getbyte(cp->client_data);
-		if (!c)
-		    break;
-	    }
-	    putb(lval, cp, c);
+                if (!c)
+                    break;
+            }
+            putb(lval, cp, c);
         }
         putb(lval, cp, 0);
-	return SIMPLE_STRING;
+        return SIMPLE_STRING;
     }
     else
     {
-	int relation_like = 0;
-	while (c != 0 && !strchr(" \n()=<>/", c))
-	{
-	    if (c == '.')
-		relation_like = 1;
-	    if (c == '\\')
-	    {
-		putb(lval, cp, c);
-		c = cp->getbyte(cp->client_data);
-		if (!c)
-		    break;
-	    }
-	    putb(lval, cp, c);
-	    c = cp->getbyte(cp->client_data);
-	}
-	putb(lval, cp, 0);
+        int relation_like = 0;
+        while (c != 0 && !strchr(" \n()=<>/", c))
+        {
+            if (c == '.')
+                relation_like = 1;
+            if (c == '\\')
+            {
+                putb(lval, cp, c);
+                c = cp->getbyte(cp->client_data);
+                if (!c)
+                    break;
+            }
+            putb(lval, cp, c);
+            c = cp->getbyte(cp->client_data);
+        }
+        putb(lval, cp, 0);
 #if YYDEBUG
-	printf ("got %s\n", lval->buf);
+        printf ("got %s\n", lval->buf);
 #endif
-	if (c != 0)
-	    cp->ungetbyte(c, cp->client_data);
-	if (!cql_strcmp(lval->buf, "and"))
-	{
-	    lval->buf = "and";
-	    return AND;
-	}
-	if (!cql_strcmp(lval->buf, "or"))
-	{
-	    lval->buf = "or";
-	    return OR;
-	}
-	if (!cql_strcmp(lval->buf, "not"))
-	{
-	    lval->buf = "not";
-	    return NOT;
-	}
-	if (!cql_strcmp(lval->buf, "prox"))
-	{
-	    lval->buf = "prox";
-	    return PROX;
-	}
-	if (!cql_strcmp(lval->buf, "sortby"))
-	{
-	    lval->buf = "sortby";
-	    return SORTBY;
-	}
+        if (c != 0)
+            cp->ungetbyte(c, cp->client_data);
+        if (!cql_strcmp(lval->buf, "and"))
+        {
+            lval->buf = "and";
+            return AND;
+        }
+        if (!cql_strcmp(lval->buf, "or"))
+        {
+            lval->buf = "or";
+            return OR;
+        }
+        if (!cql_strcmp(lval->buf, "not"))
+        {
+            lval->buf = "not";
+            return NOT;
+        }
+        if (!cql_strcmp(lval->buf, "prox"))
+        {
+            lval->buf = "prox";
+            return PROX;
+        }
+        if (!cql_strcmp(lval->buf, "sortby"))
+        {
+            lval->buf = "sortby";
+            return SORTBY;
+        }
         if (cp->strict)
             return PREFIX_NAME;
-	if (!cql_strcmp(lval->buf, "all"))
-	    relation_like = 1;
-	if (!cql_strcmp(lval->buf, "any"))
-	    relation_like = 1;
-	if (!cql_strcmp(lval->buf, "adj"))
-	    relation_like = 1;
-	if (relation_like)
-	    return PREFIX_NAME;
+        if (!cql_strcmp(lval->buf, "all"))
+            relation_like = 1;
+        if (!cql_strcmp(lval->buf, "any"))
+            relation_like = 1;
+        if (!cql_strcmp(lval->buf, "adj"))
+            relation_like = 1;
+        if (relation_like)
+            return PREFIX_NAME;
     }
     return SIMPLE_STRING;
 }

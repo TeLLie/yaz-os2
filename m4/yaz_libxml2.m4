@@ -1,5 +1,5 @@
 AC_DEFUN([YAZ_LIBXML2],[
-AC_PATH_PROG([pkgconfigpath], [pkg-config], [NONE])
+AC_PATH_TOOL([pkgconfigpath], [pkg-config], [NONE])
 pkgmodule=""
 xml2dir=default
 XML2_VER=""

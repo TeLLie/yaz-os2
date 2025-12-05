@@ -1,4 +1,4 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>2. UNIX/MacOS</title><meta name="generator" content="DocBook XSL Stylesheets Vsnapshot"><link rel="home" href="index.html" title="YAZ User's Guide and Reference"><link rel="up" href="installation.html" title="Chapter 2. Compilation and Installation"><link rel="prev" href="installation.html" title="Chapter 2. Compilation and Installation"><link rel="next" href="installation.win32.html" title="3. Windows"></head><body><link rel="stylesheet" type="text/css" href="common/style1.css"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">2. UNIX/MacOS</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="installation.html">Prev</a> </td><th width="60%" align="center">Chapter 2. Compilation and Installation</th><td width="20%" align="right"> <a accesskey="n" href="installation.win32.html">Next</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="installation.unix"></a>2. UNIX/MacOS</h2></div></div></div><p>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>2. UNIX/macOS</title><meta name="generator" content="DocBook XSL Stylesheets Vsnapshot"><link rel="home" href="index.html" title="YAZ User's Guide and Reference"><link rel="up" href="installation.html" title="Chapter 2. Compilation and Installation"><link rel="prev" href="installation.html" title="Chapter 2. Compilation and Installation"><link rel="next" href="installation.win32.html" title="3. Windows"></head><body><link rel="stylesheet" type="text/css" href="common/style1.css"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">2. UNIX/macOS</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="installation.html">Prev</a> </td><th width="60%" align="center">Chapter 2. Compilation and Installation</th><td width="20%" align="right"> <a accesskey="n" href="installation.win32.html">Next</a></td></tr></table><hr></div><div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="installation.unix"></a>2. UNIX/macOS</h2></div></div></div><p>
     We provide
     <a class="ulink" href="https://www.debian.org/" target="_top">Debian GNU/Linux</a> (i386 and amd64),
     <a class="ulink" href="https://www.ubuntu.com" target="_top">Ubuntu</a> (i386 and amd64)
@@ -34,7 +34,7 @@
      <a class="ulink" href="https://www.gnu.org/software/libiconv/" target="_top">GNU libiconv</a>.
     </p><p>
      YAZ 3.0.16 and later includes a wrapper for the
-     <a class="ulink" href="http://www.icu-project.org/" target="_top">ICU</a>
+     <a class="ulink" href="http://github.com/unicode-org/icu" target="_top">ICU</a>
      (International Components for Unicode).
      In order to use this, the developer version of the ICU library
      must be available. ICU support is recommended for applications
@@ -162,7 +162,7 @@
 	</p></dd><dt><span class="term">
         <code class="literal">--with-icu</code>[=<em class="replaceable"><code>prefix</code></em>]
        </span></dt><dd><p>YAZ will be linked the
-	<a class="ulink" href="http://www.icu-project.org/" target="_top">ICU</a> library in the prefix if given.
+	<a class="ulink" href="http://github.com/unicode-org/icu" target="_top">ICU</a> library in the prefix if given.
 	If prefix is not given, the libraries exposed by the script
 	<span class="application">icu-config</span> will be used if found.
 	</p></dd><dt><span class="term">
@@ -246,17 +246,89 @@
      changed installation prefix). Note that uninstall will not
      remove directories created by make install, e.g.
      <code class="filename">/usr/local/include/yaz</code>.
-    </p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="installation.source.macos"></a>2.2. Compiling from source on MacOS</h3></div></div></div><p>
-       Compiling from source on MacOSX requires libxml2. This can be installed
-       with Homebrew, for instance:
+    </p></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="installation.source.macos"></a>2.2. Compiling from source on macOS</h3></div></div></div><p>
+       Install Apple's Xcode Command Line Tools (XCLT) package from <a class="ulink" href="https://developer.apple.com/" target="_top">Apple Developer</a>
+       which provides necessary tools for building C/C++ programs on macOS. You can also try to install it from the command line with:
        </p><pre class="screen">
-         brew install libxml2
+         xcode-select --install
        </pre><p>
-     </p><p> Review the Caveats section (<code class="code">brew info libxml2</code>) for the <code class="code">LDFLAGS</code>, <code class="code">CPPFLAGS</code>, and <code class="code">PKG_CONFIG_PATH</code> environment variables before executing the <code class="code">./compile</code> command. For instance:
+       Out of the box, XCLT is sufficient for compiling basic YAZ from the source distribution tarball
+       with XML support as it includes libxml2 and libxslt development headers.
+     </p><p>
+       For ICU support, you can fetch Apple's source distribution from GitHub:
        </p><pre class="screen">
-         export LDFLAGS="-L/usr/local/opt/libxml2/lib"
-         export CPPFLAGS="-I/usr/local/opt/libxml2/include"
-         export PKG_CONFIG_PATH="/usr/local/opt/libxml2/lib/pkgconfig"
+         git clone https://github.com/apple-oss-distributions/ICU.git
+       </pre><p>
+       and compile YAZ with:
+       </p><pre class="screen">
+         export ICU_CPPFLAGS="-DYAZ_HAVE_ICU=1 -I../../ICU/icu/icu4c/source/common -I../../ICU/icu/icu4c/source/i18n"
+         export ICU_LIBS=" -licucore"
+         ./configure
+         make
+       </pre><p>
+       For SSL support, YAZ requires GnuTLS and cannot be compiled with LibreSSL/OpenSSL shipped with macOS (see below).
+     </p><p>
+       If you are compiling YAZ from a Git checkout, at the time of writing XCLT includes GNU Bison v2.3 which is too old
+       to generate YAZ sources. You can use e.g. <a class="ulink" href="https://brew.sh" target="_top">Homebrew</a> to install a more recent version:
+       </p><pre class="screen">
+         brew install bison
+       </pre><p>
+       After installation make sure to put it on the path:
+       </p><pre class="screen">
+         export PATH="/opt/homebrew/opt/bison/bin:$PATH"
+       </pre><p>
+       Note: XCLT 15.4 fails to make  <code class="code">gm4</code> available as <code class="code">m4</code> which can cause a silent Bison failure, one
+       way to fix it is:
+       </p><pre class="screen">
+         sudo ln -s /Library/Developer/CommandLineTools/usr/bin/gm4 \
+           /Library/Developer/CommandLineTools/usr/bin/m4
+       </pre><p>
+       Additionally, you will need to install DocBook stylesheets to generate documentation:
+       </p><pre class="screen">
+         brew install docbook docbook-xsl
+       </pre><p>
+       per the caveats section (<code class="code">brew info docbook</code>), for the compilation to find them, add:
+       </p><pre class="screen">
+         export XML_CATALOG_FILES="/opt/homebrew/etc/xml/catalog"
+       </pre><p>
+       To compile YAZ with SSL support, install GnuTLS with:
+       </p><pre class="screen">
+         brew install gnutls
+       </pre><p>
+       Homebrew makes GnuTLS discoverable by pkg-config, so no additional flags are needed when configuring YAZ.
+       You may also want to compile YAZ with Homebrew's ICU:
+       </p><pre class="screen">
+         brew install icu4c
+       </pre><p>
+       but make sure to add compiler flags before the configure stage, per the caveats section (<code class="code">brew info icu4c</code>):
+       </p><pre class="screen">
+         export LDFLAGS="-L/opt/homebrew/opt/icu4c/lib"
+         export CPPFLAGS="-I/opt/homebrew/opt/icu4c/include"
+         export PKG_CONFIG_PATH="/opt/homebrew/opt/icu4c/lib/pkgconfig"
+       </pre><p>
+       Additionally, if you want to compile YAZ with a more recent version of libxml2 and libxslt,
+       you can install them with Homebrew:
+       </p><pre class="screen">
+         brew install libxml2 libxslt
+       </pre><p>
+       and, again, make sure to add compiler flags, per the caveats section (<code class="code">brew info libxml2</code>):
+       </p><pre class="screen">
+         export PATH="/opt/homebrew/opt/bison/bin:\
+         /opt/homebrew/opt/libxml2/bin:\
+         /opt/homebrew/opt/libxslt/bin:\
+         $PATH"
+         export LDFLAGS="-L/opt/homebrew/opt/libxml2/lib \
+         -L/opt/homebrew/opt/libxslt/lib \
+         -L/opt/homebrew/opt/icu4c/lib"
+         export CPPFLAGS="-I/opt/homebrew/opt/libxml2/include \
+         -I/opt/homebrew/opt/libxslt/include \
+         -I/opt/homebrew/opt/icu4c/include"
+         export PKG_CONFIG_PATH="/opt/homebrew/opt/libxml2/lib/pkgconfig:\
+         /opt/homebrew/opt/libxslt/lib/pkgconfig:\
+         /opt/homebrew/opt/icu4c/lib/pkgconfig"
+       </pre><p>
+       Then configure and conpile with:
+       </p><pre class="screen">
          ./configure
          make
        </pre><p>

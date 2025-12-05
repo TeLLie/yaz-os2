@@ -227,3 +227,6 @@
 
 /* socklen_t type */
 #undef YAZ_SOCKLEN_T
+
+/* Enable POSIX */
+#undef _POSIX_C_SOURCE

@@ -248,6 +248,7 @@ EGREP = @EGREP@
 ETAGS = @ETAGS@
 EXEEXT = @EXEEXT@
 FGREP = @FGREP@
+FILECMD = @FILECMD@
 GREP = @GREP@
 HIREDIS_LIBS = @HIREDIS_LIBS@
 HTML_COMPILE = @HTML_COMPILE@
@@ -964,7 +965,7 @@ dist-hook:
 	done
 
 doc-clean:
-	rm -f manref.xml *.html *.[0-9] *.pdf toc.hhc htmlhelp.hhp local.ent
+	rm -f manref.xml *.html *.[0-9] *.pdf toc.hhc htmlhelp.hhp
 
 install-data-hook:
 	if test -f index.html; then d=.; else d="$(srcdir)"; fi; \

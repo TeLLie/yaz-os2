@@ -2,12 +2,12 @@
 .\"     Title: yaz-client
 .\"    Author: Index Data
 .\" Generator: DocBook XSL Stylesheets vsnapshot <http://docbook.sf.net/>
-.\"      Date: 12/14/2022
+.\"      Date: 05/21/2025
 .\"    Manual: Commands
-.\"    Source: YAZ 5.33.0
+.\"    Source: YAZ 5.35.1
 .\"  Language: English
 .\"
-.TH "YAZ\-CLIENT" "1" "12/14/2022" "YAZ 5.33.0" "Commands"
+.TH "YAZ\-CLIENT" "1" "05/21/2025" "YAZ 5.35.1" "Commands"
 .\" -----------------------------------------------------------------
 .\" * Define some portability stuff
 .\" -----------------------------------------------------------------
@@ -334,16 +334,31 @@ sort
 but stores the sorted result set in a new result set\&.
 .RE
 .PP
-authentication \fIopenauth\fR
+authentication [\fIauth1\fR [\fIauth2\fR [\fIauth3\fR]]]
 .RS 4
-Sets up an authentication string if a server requires authentication (v2 OpenStyle)\&. The authentication string is first sent to the server when the
+Configures authentication strings to be sent to server\&. Zero, 1, 2 or 3 arguments may follow the auth command\&.
+.sp
+If no (0) arguments are given, no authentication string is sent\&.
+.sp
+If one argument is given, the Z39\&.50 v2 OpenStyle authentication is used\&. A common convention for the
+\fIauth1\fR
+string is that the username and password is separated by a slash, e\&.g\&.
+myusername/mysecret\&.
+.sp
+If two or more arguments is given Z39\&.50 v3 authentication is used, in which cased the first argument is used, second argument is group and third argument is password\&. If only two arguments are given the group is assumed to be empty\&.
+.sp
+As for other commands in yaz\-client, the arguments are separated by whitespace\&. A backslash character can be used to include a character verbatim\&. For example,
+auth myuser a\e b
+is a two argument auth command where user is
+myuser
+and password is
+a b\&.
+.sp
+The authentication string is first sent to the server when the
 open
 command is issued and the Z39\&.50 Initialize Request is sent, so this command must be used before
 open
-in order to be effective\&. A common convention for the
-\fIauthopen\fR
-string is that the username \- and password is separated by a slash, e\&.g\&.
-myusername/mysecret\&.
+in order to be effective\&.
 .RE
 .PP
 sru \fImethod\fR \fIversion\fR

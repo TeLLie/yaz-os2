@@ -2,7 +2,7 @@
 <refentry id="yaz-client">
  <refentryinfo>
   <productname class="trade">YAZ</productname>
-  <productnumber>5.33.0</productnumber>
+  <productnumber>5.35.1</productnumber>
   <orgname>Index Data</orgname>
  </refentryinfo>
 
@@ -376,18 +376,34 @@
     </listitem>
    </varlistentry>
    <varlistentry><term>
-     <literal moreinfo="none">authentication</literal> <replaceable>openauth</replaceable>
+     <literal moreinfo="none">authentication</literal> [<replaceable>auth1</replaceable> [<replaceable>auth2</replaceable> [<replaceable>auth3</replaceable>]]]
     </term>
     <listitem>
-     <para>Sets up an authentication string if a server requires
-      authentication (v2 OpenStyle). The authentication string is first
+     <para>Configures authentication strings to be sent to server. Zero, 1, 2 or 3 arguments may follow the
+     auth command.
+     </para>
+     <para>If no (0) arguments are given, no authentication string is sent.</para>
+     <para>If one argument is given, the Z39.50 v2 OpenStyle authentication is used.
+      A common convention for the <replaceable>auth1</replaceable> string
+      is that the username and password is separated by a slash, e.g.
+      <literal moreinfo="none">myusername/mysecret</literal>.
+     </para>
+     <para>
+      If two or more arguments is given Z39.50 v3 authentication is used, in which cased the
+      first argument is used, second argument is group and third argument is password. If only two arguments are given
+      the group is assumed to be empty.
+     </para>
+     <para>
+      As for other commands in yaz-client, the arguments are separated by whitespace. A backslash character can be used to include
+      a character verbatim. For example, <literal moreinfo="none">auth myuser a\ b</literal> is a two argument auth command where user is
+      <literal moreinfo="none">myuser</literal> and password is <literal moreinfo="none">a b</literal>.
+     </para>
+     <para>
+     The authentication string is first
       sent to the server when the
       <link linkend="command-open"><literal moreinfo="none">open</literal></link> command is
       issued and the Z39.50 Initialize Request is sent, so this command
       must be used before <literal moreinfo="none">open</literal> in order to be effective.
-      A common convention for the <replaceable>authopen</replaceable> string
-      is that the username - and password is separated by a slash, e.g.
-      <literal moreinfo="none">myusername/mysecret</literal>.
      </para>
     </listitem>
    </varlistentry>
@@ -1025,7 +1041,7 @@
 <refentry id="yaz-ztest">
  <refentryinfo>
   <productname class="trade">YAZ</productname>
-  <productnumber>5.33.0</productnumber>
+  <productnumber>5.35.1</productnumber>
   <orgname>Index Data</orgname>
  </refentryinfo>
 
@@ -1694,7 +1710,7 @@ End:
 <refentry id="yaz-config">
  <refentryinfo>
   <productname class="trade">YAZ</productname>
-  <productnumber>5.33.0</productnumber>
+  <productnumber>5.35.1</productnumber>
   <orgname>Index Data</orgname>
  </refentryinfo>
 
@@ -1832,7 +1848,7 @@ End:
 <refentry id="yaz">
  <refentryinfo>
   <productname class="trade">YAZ</productname>
-  <productnumber>5.33.0</productnumber>
+  <productnumber>5.35.1</productnumber>
   <orgname>Index Data</orgname>
  </refentryinfo>
 
@@ -1860,7 +1876,7 @@ End:
 
  <refsect1><title>COPYRIGHT</title>
   <para>
-   Copyright © 1995-2022 Index Data.
+   Copyright © 1995-2025 Index Data.
   </para>
   <para>
    All rights reserved.
@@ -1948,7 +1964,7 @@ End:
 <refentry id="zoomsh">
  <refentryinfo>
   <productname class="trade">YAZ</productname>
-  <productnumber>5.33.0</productnumber>
+  <productnumber>5.35.1</productnumber>
   <orgname>Index Data</orgname>
  </refentryinfo>
 
@@ -2126,7 +2142,7 @@ ZOOM&gt;quit
 <refentry id="yaz-asncomp">
  <refentryinfo>
   <productname class="trade">YAZ</productname>
-  <productnumber>5.33.0</productnumber>
+  <productnumber>5.35.1</productnumber>
   <orgname>Index Data</orgname>
  </refentryinfo>
 
@@ -2370,7 +2386,7 @@ ZOOM&gt;quit
 <refentry id="yaz-marcdump">
  <refentryinfo>
   <productname class="trade">YAZ</productname>
-  <productnumber>5.33.0</productnumber>
+  <productnumber>5.35.1</productnumber>
   <orgname>Index Data</orgname>
  </refentryinfo>
 
@@ -2632,7 +2648,7 @@ ZOOM&gt;quit
 <refentry id="yaz-iconv">
  <refentryinfo>
   <productname class="trade">YAZ</productname>
-  <productnumber>5.33.0</productnumber>
+  <productnumber>5.35.1</productnumber>
   <orgname>Index Data</orgname>
  </refentryinfo>
 
@@ -2832,7 +2848,7 @@ ZOOM&gt;quit
 <refentry id="yaz-log">
  <refentryinfo>
   <productname class="trade">YAZ</productname>
-  <productnumber>5.33.0</productnumber>
+  <productnumber>5.35.1</productnumber>
   <orgname>Index Data</orgname>
  </refentryinfo>
 
@@ -3103,7 +3119,7 @@ ZOOM&gt;quit
 <refentry id="yaz-illclient">
  <refentryinfo>
   <productname class="trade">YAZ</productname>
-  <productnumber>5.33.0</productnumber>
+  <productnumber>5.35.1</productnumber>
   <orgname>Index Data</orgname>
  </refentryinfo>
 
@@ -3217,7 +3233,7 @@ ZOOM&gt;quit
 <refentry id="yaz-icu">
  <refentryinfo>
   <productname class="trade">YAZ</productname>
-  <productnumber>5.33.0</productnumber>
+  <productnumber>5.35.1</productnumber>
   <orgname>Index Data</orgname>
  </refentryinfo>
 
@@ -3377,7 +3393,7 @@ ZOOM&gt;quit
        Specifies an ICU transform rule using a transliterator
        Identifier.
        The rule attribute is the transliterator Identifier.
-       See  <ulink url="http://userguide.icu-project.org/transforms/general">ICU Transforms</ulink> for
+       See  <ulink url="https://unicode-org.github.io/icu/userguide/transforms/general/">ICU Transforms</ulink> for
        more information.
       </para></listitem>
     </varlistentry>
@@ -3387,7 +3403,7 @@ ZOOM&gt;quit
      <listitem><para>
        Specifies a rule-based transliterator.
        The rule attribute is the custom transformation rule to be used.
-       See <ulink url="http://userguide.icu-project.org/transforms/general">ICU Transforms</ulink> for
+       See <ulink url="https://unicode-org.github.io/icu/userguide/transforms/general/">ICU Transforms</ulink> for
        more information.
       </para></listitem>
     </varlistentry>
@@ -3481,10 +3497,10 @@ ZOOM&gt;quit
    </citerefentry>
   </para>
   <para>
-   <ulink url="http://www.icu-project.org/">ICU Home</ulink>
+   <ulink url="http://github.com/unicode-org/icu">ICU Home</ulink>
   </para>
   <para>
-   <ulink url="http://userguide.icu-project.org/transforms/general">ICU Transforms</ulink>
+   <ulink url="https://unicode-org.github.io/icu/userguide/transforms/general/">ICU Transforms</ulink>
   </para>
  </refsect1>
 </refentry>
@@ -3492,7 +3508,7 @@ ZOOM&gt;quit
 <refentry id="yaz-url">
  <refentryinfo>
   <productname class="trade">YAZ</productname>
-  <productnumber>5.33.0</productnumber>
+  <productnumber>5.35.1</productnumber>
   <orgname>Index Data</orgname>
  </refentryinfo>
 
@@ -3616,7 +3632,7 @@ ZOOM&gt;quit
 <refentry id="bib1">
  <refentryinfo>
   <productname class="trade">YAZ</productname>
-  <productnumber>5.33.0</productnumber>
+  <productnumber>5.35.1</productnumber>
   <orgname>Index Data</orgname>
  </refentryinfo>
 
@@ -3861,7 +3877,7 @@ ZOOM&gt;quit
 <refentry id="yaz-json-parse">
  <refentryinfo>
   <productname class="trade">YAZ</productname>
-  <productnumber>5.33.0</productnumber>
+  <productnumber>5.35.1</productnumber>
   <orgname>Index Data</orgname>
  </refentryinfo>
 
@@ -3922,7 +3938,7 @@ ZOOM&gt;quit
 <refentry id="yaz-record-iconv">
  <refentryinfo>
   <productname class="trade">YAZ</productname>
-  <productnumber>5.33.0</productnumber>
+  <productnumber>5.35.1</productnumber>
   <orgname>Index Data</orgname>
  </refentryinfo>
 

@@ -1,4 +1,4 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>yaz-icu</title><meta name="generator" content="DocBook XSL Stylesheets Vsnapshot"><link rel="home" href="index.html" title="YAZ User's Guide and Reference"><link rel="up" href="reference.html" title="Reference"><link rel="prev" href="yaz-illclient.html" title="yaz-illclient"><link rel="next" href="yaz-url.html" title="yaz-url"></head><body><link rel="stylesheet" type="text/css" href="common/style1.css"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">yaz-icu</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="yaz-illclient.html">Prev</a> </td><th width="60%" align="center">Reference</th><td width="20%" align="right"> <a accesskey="n" href="yaz-url.html">Next</a></td></tr></table><hr></div><div class="refentry"><a name="yaz-icu"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>yaz-icu &#8212; YAZ ICU utility</p></div><div class="refsynopsisdiv"><h2>Synopsis</h2><div class="cmdsynopsis"><p><code class="command">yaz-icu</code>  [-c <em class="replaceable"><code>config</code></em>] [-p <em class="replaceable"><code>opt</code></em>] [-s] [-x] [infile]</p></div></div><div class="refsect1"><a name="idm7556"></a><h2>DESCRIPTION</h2><p>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>yaz-icu</title><meta name="generator" content="DocBook XSL Stylesheets Vsnapshot"><link rel="home" href="index.html" title="YAZ User's Guide and Reference"><link rel="up" href="reference.html" title="Reference"><link rel="prev" href="yaz-illclient.html" title="yaz-illclient"><link rel="next" href="yaz-url.html" title="yaz-url"></head><body><link rel="stylesheet" type="text/css" href="common/style1.css"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">yaz-icu</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="yaz-illclient.html">Prev</a> </td><th width="60%" align="center">Reference</th><td width="20%" align="right"> <a accesskey="n" href="yaz-url.html">Next</a></td></tr></table><hr></div><div class="refentry"><a name="yaz-icu"></a><div class="titlepage"></div><div class="refnamediv"><h2>Name</h2><p>yaz-icu &#8212; YAZ ICU utility</p></div><div class="refsynopsisdiv"><h2>Synopsis</h2><div class="cmdsynopsis"><p><code class="command">yaz-icu</code>  [-c <em class="replaceable"><code>config</code></em>] [-p <em class="replaceable"><code>opt</code></em>] [-s] [-x] [infile]</p></div></div><div class="refsect1"><a name="id8922"></a><h2>DESCRIPTION</h2><p>
    <span class="command"><strong>yaz-icu</strong></span> is a utility which demonstrates
    the ICU chain module of yaz. (<code class="filename">yaz/icu.h</code>).
   </p><p>
@@ -10,7 +10,7 @@
   </p><p>
     The utility may also show ICU information. This is triggered by
     option <code class="literal">-p</code>.
-  </p></div><div class="refsect1"><a name="idm7566"></a><h2>OPTIONS</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term">-c <em class="replaceable"><code>config</code></em></span></dt><dd><p>
+  </p></div><div class="refsect1"><a name="id8932"></a><h2>OPTIONS</h2><div class="variablelist"><dl class="variablelist"><dt><span class="term">-c <em class="replaceable"><code>config</code></em></span></dt><dd><p>
       Specifies the file containing ICU chain configuration
       which is XML based.
      </p></dd><dt><span class="term">-p <em class="replaceable"><code>type</code></em></span></dt><dd><p>
@@ -27,7 +27,7 @@
      </p></dd><dt><span class="term">-x</span></dt><dd><p>
       Specifies that output should be XML based rather than
       "text" based.
-     </p></dd></dl></div></div><div class="refsect1"><a name="idm7593"></a><h2>ICU chain configuration</h2><p>
+     </p></dd></dl></div></div><div class="refsect1"><a name="id8959"></a><h2>ICU chain configuration</h2><p>
    The ICU chain configuration specifies one or more rules to convert
    text data into tokens. The configuration format is XML based.
   </p><p>
@@ -56,12 +56,12 @@
        Specifies an ICU transform rule using a transliterator
        Identifier.
        The rule attribute is the transliterator Identifier.
-       See  <a class="ulink" href="http://userguide.icu-project.org/transforms/general" target="_top">ICU Transforms</a> for
+       See  <a class="ulink" href="https://unicode-org.github.io/icu/userguide/transforms/general/" target="_top">ICU Transforms</a> for
        more information.
       </p></dd><dt><span class="term">transliterate</span></dt><dd><p>
        Specifies a rule-based transliterator.
        The rule attribute is the custom transformation rule to be used.
-       See <a class="ulink" href="http://userguide.icu-project.org/transforms/general" target="_top">ICU Transforms</a> for
+       See <a class="ulink" href="https://unicode-org.github.io/icu/userguide/transforms/general/" target="_top">ICU Transforms</a> for
        more information.
       </p></dd><dt><span class="term">tokenize</span></dt><dd><p>
        Breaks / tokenizes a string into components using
@@ -74,7 +74,7 @@
        in YAZ 4.2.49.
       </p></dd></dl></div><p>
 
-  </p></div><div class="refsect1"><a name="idm7670"></a><h2>EXAMPLES</h2><p>
+  </p></div><div class="refsect1"><a name="id9036"></a><h2>EXAMPLES</h2><p>
    The following command analyzes text in file <code class="filename">text</code>
    using ICU chain configuration <code class="filename">chain.xml</code>:
    </p><pre class="screen">
@@ -92,10 +92,10 @@
 &lt;/icu_chain&gt;
 
    </pre><p>
-  </p></div><div class="refsect1"><a name="idm7677"></a><h2>SEE ALSO</h2><p>
+  </p></div><div class="refsect1"><a name="id9043"></a><h2>SEE ALSO</h2><p>
    <span class="citerefentry"><span class="refentrytitle">yaz</span>(7)</span>
   </p><p>
-   <a class="ulink" href="http://www.icu-project.org/" target="_top">ICU Home</a>
+   <a class="ulink" href="http://github.com/unicode-org/icu" target="_top">ICU Home</a>
   </p><p>
-   <a class="ulink" href="http://userguide.icu-project.org/transforms/general" target="_top">ICU Transforms</a>
+   <a class="ulink" href="https://unicode-org.github.io/icu/userguide/transforms/general/" target="_top">ICU Transforms</a>
   </p></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="yaz-illclient.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="reference.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="yaz-url.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">yaz-illclient </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> yaz-url</td></tr></table></div></body></html>
